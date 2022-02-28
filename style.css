@@ -11,8 +11,7 @@
 
 html,
 body,
-header,
-footer {
+header {
   position: relative;
   height: 40%;
 }
