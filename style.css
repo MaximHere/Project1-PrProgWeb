@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -21,10 +21,9 @@ html {
 }
 
 main {
-  margin-top: 10px;
-  margin-bottom: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 5%;
+  margin-right: 5%;
+  text-align: center;
 }
 
 .topBar {
@@ -34,10 +33,9 @@ main {
   position: fixed;
   display: flex;
   padding: 30px 20px;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
 }
-
 
 .topBar h1 {
   letter-spacing: 1px;
@@ -50,7 +48,6 @@ main {
 .topBar a {
   text-decoration: none;
 }
-
 
 .topBar-right .search-box {
   margin-right: 30px;
@@ -158,10 +155,11 @@ main {
   text-decoration: none;
 }
 
-/*SIT UP - SITE*/
+/*CONTENT SITE*/
 /* VIDEOS & DESC SAMPING */
 
 .video-details {
+  margin: 20px;
   border: none;
   margin-left: auto;
   margin-right: auto;
@@ -204,17 +202,22 @@ main {
   font-weight: 500;
 }
 
-
-/* ARTIKEL */
+/* TEXT CONTENT */
 
 .Desc {
-  margin: 40px 100px 40px 100px;
+  margin: 30px;
   text-align: justify;
 }
 
 .Title {
   font-size: 22pt;
   text-transform: uppercase;
+}
+
+.text {
+  background-color: #929292;
+  border-radius: 20px;
+  padding: 10px;
 }
 
 .list {
