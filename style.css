@@ -50,7 +50,7 @@ main {
 }
 
 .topBar-right .search-box {
-  margin-right: 30px;
+  margin-right: 10px;
   padding: 5px 30px;
   text-align: left;
   border: 2px white solid;
@@ -59,15 +59,9 @@ main {
   font-style: italic;
 }
 
-.topBar-right .separate {
-  border-left: 5px double rgb(255, 255, 255);
-  height: 50px;
-  position: fixed;
-  right: 250px;
-  top: 5px;
-}
 
-.topBar-right .loginButton {
+
+.topBar-right .SearchButton {
   background-color: transparent;
   color: rgb(255, 255, 255);
   padding: 5px 18px;
