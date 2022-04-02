@@ -7,7 +7,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* TAB BAR STYLE */
+/* HEADER STYLE */
 
 html,
 body,
@@ -16,124 +16,159 @@ header {
   height: 40%;
 }
 
+body {
+  background-color: white;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 main {
-  margin-left: 5%;
-  margin-right: 5%;
   text-align: center;
 }
 
 .topBar {
   width: 100%;
-  height: 0;
-  background-color: #24252a;
+  height: 50px;
+  background-color: rgb(224, 224, 224);
   position: fixed;
   display: flex;
-  padding: 30px 20px;
-  justify-content: space-between;
+  padding: 35px;
   align-items: center;
 }
 
+.topBar img {
+  position: absolute;
+  top: 13px;
+  left: 20px;
+  float: left;
+  height: 40px;
+}
+
 .topBar h1 {
+  position: absolute;
+  left: 80px;
   letter-spacing: 1px;
-  font-size: 22pt;
-  color: rgb(245, 245, 245);
+  font-size: 24pt;
+  color: #a64ac9;
   font-weight: 700;
   font-style: italic;
+  clear: both;
 }
 
 .topBar a {
   text-decoration: none;
 }
 
+.topBar-right {
+  right: 20px;
+  position: absolute;
+  float: right;
+}
+
 .topBar-right .search-box {
+  background-color: transparent;
   margin-right: 10px;
+  width: 400px;
   padding: 5px 30px;
   text-align: left;
-  border: 2px white solid;
+  border: 2px #a64ac9 solid;
   border-radius: 50px;
   font-size: 12pt;
   font-style: italic;
+  color: #a64ac9;
+}
+
+::placeholder {
+  color: #a64ac9;
+  opacity: 1;
 }
 
 
-
 .topBar-right .SearchButton {
-  background-color: transparent;
-  color: rgb(255, 255, 255);
+  background-color: #a64ac9;
+  color: white;
   padding: 5px 18px;
   margin-right: 10px;
   text-align: center;
   display: inline-block;
-  border: 2px white solid;
+  border: 2px #a64ac9 solid;
   border-radius: 50px;
   font-size: 12pt;
   font-weight: bold;
   cursor: pointer;
 }
 
-.topBar-right .signButton {
-  background-color: white;
-  color: #24252a;
-  padding: 5px 18px;
-  text-align: center;
-  display: inline-block;
-  border: 2px white solid;
-  border-radius: 50px;
-  font-size: 12pt;
-  font-weight: bold;
-  cursor: pointer;
+.topBar-right button:hover {
+  background-color: rgb(224, 224, 224);
+  border: 2px #a64ac9 solid;
+  color: #a64ac9;
 }
 
 /* HOME MENU */
 
-.home-page {
-  background-color: whitesmoke;
+main h2 {
+  color: #ffb300;
 }
 
 .home-page .details {
-  color: #24252a;
+  color: #ffb300;
+  background-image: url(pic/background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
 }
 
 .home-page .details h1 {
-  font-size: 40pt;
+  text-shadow: 5px 5px #a64ac9, 10px 10px #242424;
+  font-size: 50pt;
   font-weight: 800;
   text-transform: uppercase;
   text-align: center;
 }
 
 .home-page .details article {
+  color: #242424;
+  font-weight: bold;
   text-align: center;
-  font-size: 12pt;
+  font-size: 14pt;
   font-style: italic;
 }
 
-.home-menu {
+/* NAMA OLAHRAGA */
+
+.nama-olahraga {
+  margin-left: auto;
+  margin-right: auto;
   border: none;
-  width: 100%;
+  text-align: center;
 }
 
-.home-menu img {
-  width: 100%;
-  height: 100%;
+.kolom-pilihan h2 {
+  text-shadow: 3px 3px 3px #a64ac9;
+  font-size: 22pt;
 }
 
-.home-menu .jarak {
+.nama-olahraga img {
+  border-style: none;
+  border-radius: 20px;
+  background-color: #17e9e0;
+  background-image: url(pic/background-3.png);
+  background-size: cover;
+  padding: 10px;
+  width: 600px;
+}
+
+.nama-olahraga .jarak {
   width: 5%;
   height: 5%;
 }
 
-.nama-menu {
-  text-align: center;
-}
-
-.nama-menu button {
+.nama-olahraga button {
   border: none;
   border-radius: 50px;
-  background-color: #24252a;
+  background-color: #17e9e0;
   padding: 8px 40px;
   text-align: center;
   text-decoration: none;
@@ -142,12 +177,75 @@ main {
   font-weight: bold;
   margin: 4px 2px;
   cursor: pointer;
+  box-shadow: 3px 3px 5px #ffb48f;
 }
 
-.nama-menu button a {
-  color: #ffffff;
+.nama-olahraga button a {
+  color: #242424;
   text-decoration: none;
 }
+
+
+.nama-olahraga button:hover {
+  background-color: #dfdfdf;
+  border: 2px #17e9e0 solid;
+  color: #17e9e0;
+}
+
+.nama-olahraga a:hover {
+  color: #17e9e0;
+}
+
+
+/* INSTRUKTUR */
+
+.instruktur {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px;
+  border: none;
+  width: 70%;
+}
+
+.instruktur img {
+  justify-content: center;
+  width: 80px;
+  border: none;
+  border-radius: 50% ;
+  background-color: #17e9e0;
+  padding: 10px;
+  box-shadow: 3px 3px #ffb48f;
+}
+
+.instruktur button {
+  border: none;
+  border-radius: 50px;
+  background-color: #17e9e0;
+  padding: 8px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12pt;
+  font-weight: bold;
+  margin: 4px 2px;
+  cursor: pointer;
+  box-shadow: 3px 3px 5px #ffb48f;
+}
+
+.instruktur button a {
+  color: #242424;
+  text-decoration: none;
+}
+
+.instruktur button:hover {
+  background-color: #dfdfdf;
+  border: 2px #17e9e0 solid;
+}
+
+.instruktur a:hover {
+  color: #17e9e0;
+}
+
 
 /*CONTENT SITE*/
 /* VIDEOS & DESC SAMPING */
@@ -159,7 +257,9 @@ main {
   margin-right: auto;
   border-collapse: collapse;
   text-align: center;
-  background-color: #24252a;
+  background-color: #17e9e0;
+  background-image: url(pic/background-2.png);
+  background-size: cover;
 }
 
 .video-details th {
@@ -173,27 +273,38 @@ main {
   padding: 20px;
 }
 
+.artikel {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
 .details {
   padding: 20px;
 }
 
 .details h2 {
   font-size: 30pt;
-  color: white;
+  color: #ffb300;
   text-transform: uppercase;
   font-weight: 900;
+  text-shadow: 5px 5px #a64ac9;
 }
 
 .details .detail-list {
   font-size: 12pt;
   margin-left: 50px;
-  color: white;
-  font-weight: 200;
+  color: #242424;
+  font-weight: bold;
   text-align: left;
 }
 
 .details .detail-list strong {
-  font-weight: 500;
+  font-weight: bolder;
+}
+
+.detail-list a {
+  text-decoration: underline;
+  color: #242424;
 }
 
 /* TEXT CONTENT */
@@ -206,12 +317,15 @@ main {
 .Title {
   font-size: 22pt;
   text-transform: uppercase;
+  text-shadow: 3px 3px #a64ac9;
 }
 
 .text {
-  background-color: #d3d3d3;
-  border-radius: 20px;
-  padding: 10px;
+  font-size: 14pt;
+  background-color: rgb(224, 224, 224);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 5px 5px 8px #17e9e0;
 }
 
 .list {
@@ -225,8 +339,8 @@ main {
   position: absolute;
   width: 100%;
   height: 100px;
-  background-color: #24252a;
-  color: white;
+  background-color: rgb(224, 224, 224);
+  color: #242424;
   padding: 20px 20px;
   font-size: 12pt;
   text-align: right;
