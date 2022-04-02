@@ -31,7 +31,11 @@ main {
 .topBar {
   width: 100%;
   height: 50px;
+<<<<<<< HEAD
   background-color: rgb(224, 224, 224);
+=======
+  background-color: #24252a;
+>>>>>>> d70f54048373842690b60af5b44dfb05759cd1e8
   position: fixed;
   display: flex;
   padding: 35px;
@@ -51,7 +55,11 @@ main {
   left: 80px;
   letter-spacing: 1px;
   font-size: 24pt;
+<<<<<<< HEAD
   color: #a64ac9;
+=======
+  color: rgb(245, 245, 245);
+>>>>>>> d70f54048373842690b60af5b44dfb05759cd1e8
   font-weight: 700;
   font-style: italic;
   clear: both;
@@ -85,7 +93,10 @@ main {
   opacity: 1;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d70f54048373842690b60af5b44dfb05759cd1e8
 .topBar-right .SearchButton {
   background-color: #a64ac9;
   color: white;
@@ -100,11 +111,14 @@ main {
   cursor: pointer;
 }
 
+<<<<<<< HEAD
 .topBar-right button:hover {
   background-color: rgb(224, 224, 224);
   border: 2px #a64ac9 solid;
   color: #a64ac9;
 }
+=======
+>>>>>>> d70f54048373842690b60af5b44dfb05759cd1e8
 
 /* HOME MENU */
 
