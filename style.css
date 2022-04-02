@@ -80,7 +80,7 @@ main {
   color: #a64ac9;
 }
 
-::placeholder {
+.search-box::placeholder {
   color: #a64ac9;
   opacity: 1;
 }
@@ -202,7 +202,7 @@ main h2 {
   justify-content: center;
   width: 80px;
   border: none;
-  border-radius: 50% ;
+  border-radius: 50%;
   background-color: #17e9e0;
   padding: 10px;
   box-shadow: 3px 3px #ffb48f;
@@ -317,6 +317,36 @@ main h2 {
   list-style-type: disc;
 }
 
+/* KOLOM KOMENTAR */
+
+.col-komentar {
+  margin-left: 150px;
+  margin-right: 150px;
+  padding: 20px;
+}
+
+.col-komentar h3 {
+  font-size: 18pt;
+  color: #ffb300;
+  text-shadow: 2px 2px #a64ac9;
+}
+.comment {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  color: #242424;
+}
+.comment::placeholder {
+  font-style: italic;
+  color: #555555;
+}
+
+.submit {
+  width: 100px;
+  font-weight: bold;
+  background-color: #ffb300;
+  box-shadow: 2px 2px #a64ac9;
+}
 /* FOOTER */
 
 .CR {
