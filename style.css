@@ -31,11 +31,7 @@ main {
 .topBar {
   width: 100%;
   height: 50px;
-<<<<<<< HEAD
   background-color: rgb(224, 224, 224);
-=======
-  background-color: #24252a;
->>>>>>> d70f54048373842690b60af5b44dfb05759cd1e8
   position: fixed;
   display: flex;
   padding: 35px;
@@ -55,11 +51,7 @@ main {
   left: 80px;
   letter-spacing: 1px;
   font-size: 24pt;
-<<<<<<< HEAD
   color: #a64ac9;
-=======
-  color: rgb(245, 245, 245);
->>>>>>> d70f54048373842690b60af5b44dfb05759cd1e8
   font-weight: 700;
   font-style: italic;
   clear: both;
@@ -93,10 +85,6 @@ main {
   opacity: 1;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> d70f54048373842690b60af5b44dfb05759cd1e8
 .topBar-right .SearchButton {
   background-color: #a64ac9;
   color: white;
@@ -111,14 +99,11 @@ main {
   cursor: pointer;
 }
 
-<<<<<<< HEAD
 .topBar-right button:hover {
   background-color: rgb(224, 224, 224);
   border: 2px #a64ac9 solid;
   color: #a64ac9;
 }
-=======
->>>>>>> d70f54048373842690b60af5b44dfb05759cd1e8
 
 /* HOME MENU */
 
@@ -179,7 +164,7 @@ main h2 {
   height: 5%;
 }
 
-.nama-olahraga button {
+.nama-olahraga a {
   border: none;
   border-radius: 50px;
   background-color: #17e9e0;
@@ -189,24 +174,16 @@ main h2 {
   display: inline-block;
   font-size: 16pt;
   font-weight: bold;
+  color: #242424;
   margin: 4px 2px;
   cursor: pointer;
   box-shadow: 3px 3px 5px #ffb48f;
 }
 
-.nama-olahraga button a {
-  color: #242424;
-  text-decoration: none;
-}
-
-
-.nama-olahraga button:hover {
-  background-color: #dfdfdf;
-  border: 2px #17e9e0 solid;
-  color: #17e9e0;
-}
 
 .nama-olahraga a:hover {
+  background-color: #dfdfdf;
+  border: 2px #17e9e0 solid;
   color: #17e9e0;
 }
 
@@ -231,7 +208,7 @@ main h2 {
   box-shadow: 3px 3px #ffb48f;
 }
 
-.instruktur button {
+.instruktur a {
   border: none;
   border-radius: 50px;
   background-color: #17e9e0;
@@ -241,22 +218,15 @@ main h2 {
   display: inline-block;
   font-size: 12pt;
   font-weight: bold;
+  color: #242424;
   margin: 4px 2px;
   cursor: pointer;
   box-shadow: 3px 3px 5px #ffb48f;
 }
 
-.instruktur button a {
-  color: #242424;
-  text-decoration: none;
-}
-
-.instruktur button:hover {
+.instruktur a:hover {
   background-color: #dfdfdf;
   border: 2px #17e9e0 solid;
-}
-
-.instruktur a:hover {
   color: #17e9e0;
 }
 
