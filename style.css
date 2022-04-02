@@ -7,7 +7,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* TAB BAR STYLE */
+/* HEADER STYLE */
 
 html,
 body,
@@ -28,25 +28,41 @@ main {
 
 .topBar {
   width: 100%;
-  height: 0;
+  height: 50px;
   background-color: #24252a;
   position: fixed;
   display: flex;
-  padding: 30px 20px;
-  justify-content: space-between;
+  padding: 35px;
   align-items: center;
 }
 
+.topBar img {
+  position: absolute;
+  top: 13px;
+  left: 20px;
+  float: left;
+  height: 40px;
+}
+
 .topBar h1 {
+  position: absolute;
+  left: 80px;
   letter-spacing: 1px;
-  font-size: 22pt;
+  font-size: 24pt;
   color: rgb(245, 245, 245);
   font-weight: 700;
   font-style: italic;
+  clear: both;
 }
 
 .topBar a {
   text-decoration: none;
+}
+
+.topBar-right {
+  right: 20px;
+  position: absolute;
+  float: right;
 }
 
 .topBar-right .search-box {
@@ -58,8 +74,6 @@ main {
   font-size: 12pt;
   font-style: italic;
 }
-
-
 
 .topBar-right .SearchButton {
   background-color: transparent;
@@ -75,18 +89,6 @@ main {
   cursor: pointer;
 }
 
-.topBar-right .signButton {
-  background-color: white;
-  color: #24252a;
-  padding: 5px 18px;
-  text-align: center;
-  display: inline-block;
-  border: 2px white solid;
-  border-radius: 50px;
-  font-size: 12pt;
-  font-weight: bold;
-  cursor: pointer;
-}
 
 /* HOME MENU */
 
