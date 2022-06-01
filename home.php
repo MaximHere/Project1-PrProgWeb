@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (isset($_POST["login"])){
+    header("Location: login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,22 +20,34 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+    <style>
+        body {
+            background-image: url(pic/background.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: block;
+        }
+    </style>
 </head>
 
 <body class="home-page">
     <header class="nav">
         <div class="topBar">
-            <a href="home.html"><img src="pic/home button.png" alt="home icon"></a>
+            <a href="home.php"><img src="pic/home button.png" alt="home icon"></a>
             <h1 id="webname">FULL SEHAT MAZZEHHH</h1>
             <div class="topBar-right">
-                <input class="search-box" type="text" placeholder="Search Here">
-                <button class="SearchButton">Search</button>
+                    <form action="home.php" method="post">
+                    <input class="search-box" type="text" placeholder="Search Here">
+                    <button class="SearchButton">Search</button>
+                    <button class="SearchButton" name="login">Login</button>
+                </form>
+                
             </div>
         </div>
     </header>
 
     <main>
-        <div class="details">
+        <div>
             <h1>Welcome to FULL SEHAT</h1>
             <article>"Ini adalah sebuah web olahragawan sejati..</article>
             <article>bagi kalian kaum rebahan, jangan akses website ini :)"</article>
@@ -47,6 +67,7 @@
                     <td class="jarak"></td>
                 </tr>
                 <tr>
+<<<<<<< Updated upstream:home.html
                     <td></td>
                     <td><a href="Push Up.html">PUSH UP</a></td>
                     <td></td>
@@ -54,6 +75,11 @@
                     <td></td>
                     <td><a href="SIT-UP.html">SIT UP</a></td>
                     <td></td>
+=======
+                    <td><a href="Push Up.php">PUSH UP</a></td>
+                    <td><a href="LARI.php">LARI</a></td>
+                    <td><a href="SIT-UP.php">SIT UP</a></td>
+>>>>>>> Stashed changes:home.php
                 </tr>
             </table>
         </div>
@@ -89,5 +115,7 @@
     </footer>
 
 </body>
+<script>
 
+</script>
 </html>

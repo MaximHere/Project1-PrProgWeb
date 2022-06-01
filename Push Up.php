@@ -17,7 +17,7 @@
 <body>
     <header class="nav">
         <div class="topBar">
-            <a href="home.html"><img src="pic/home button.png" alt="home icon"></a>
+            <a href="home.php"><img src="pic/home button.png" alt="home icon"></a>
             <h1>FULL SEHAT MAZZEHHH</h1>
             <div class="topBar-right">
                 <input class="search-box" type="text" placeholder="Search Here">
