@@ -142,6 +142,8 @@ main {
 
 /* HOME MENU */
 
+
+
 main h2 {
   color: #ffb300;
   text-align: center;
@@ -382,6 +384,9 @@ main h2 {
   font-weight: bold;
   background-color: #ffb300;
   box-shadow: 2px 2px #a64ac9;
+}
+div.block-content{
+  color: #a64ac9;
 }
 /* FOOTER */
 

@@ -9,8 +9,6 @@ elseif (isset($_POST["logout"])) {
     header("Location: home.php");
 }
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -77,7 +75,7 @@ elseif (isset($_POST["logout"])) {
             <h2>Tipe Olahraga</h2>
             <br>
             <table class="nama-olahraga">
-                <tr>
+                <!-- <tr>
                     <td class="jarak"></td>
                     <td><img src="pic/foto/push-up.jpg" alt="push-up"> </td>
                     <td class="jarak"></td>
@@ -94,7 +92,23 @@ elseif (isset($_POST["logout"])) {
                     <td></td>
                     <td><a href="SIT-UP.php">SIT UP</a></td>
                     <td></td>
+                </tr> -->
+                <tr>
+                    <td>
+                        <div class="block-content">
+                            <img src="pic/foto/push-up.jpg" alt="push-up"> 
+                            <br>
+                            <a href="Push Up.php">PUSH UP</a>
+                        </div>                        
+                    </td> 
                 </tr>
+                <tr><td>
+                    <br><br>
+                </td></tr>
+                <tr>
+                    <td><img src="pic/foto/lari.jpg" alt="lari"> </td>
+                </tr>
+                
             </table>
         </div>
         <br>
