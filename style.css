@@ -7,6 +7,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.jarak {
+  width: 5%;
+  height: 5%;
+}
 /* HEADER STYLE */
 
 html,
@@ -56,6 +60,17 @@ main {
   font-style: italic;
   clear: both;
 }
+.topBar h5 {
+  position: absolute;
+  left: 800px;
+  letter-spacing: 1px;
+  font-size: 15pt;
+  color: #a64ac9;
+  font-weight: 700;
+  font-style: italic;
+  clear: both;
+}
+
 
 .topBar a {
   text-decoration: none;
@@ -129,6 +144,7 @@ main {
 
 main h2 {
   color: #ffb300;
+  text-align: center;
 }
 
 .home-page .details {

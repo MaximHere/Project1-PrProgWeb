@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+if (isset($_POST['submit'])){
+    $user = $_POST["user"];
+    $pass = $_POST["password"];
+    if ($user == 'admin' && $pass == 'admin1'){
+        $_SESSION['username'] = $user;
+        header("Location: home.php");
+    }
+
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +19,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
+    <style>
+        table.center {
+        margin-left: auto; 
+        margin-right: auto;
+        }
+    </style>
     <title>Document</title>
 </head>
 <body class="home-page">
@@ -12,14 +32,6 @@
         <div class="topBar">
             <a href="home.php"><img src="pic/home button.png" alt="home icon"></a>
             <h1 id="webname">FULL SEHAT MAZZEHHH</h1>
-            <div class="topBar-right">
-                    <form action="home.php" method="post">
-                    <input class="search-box" type="text" placeholder="Search Here">
-                    <button class="SearchButton">Search</button>
-                    <button class="SearchButton" name="login">Login</button>
-                </form>
-                
-            </div>
         </div>
     </header>
 
@@ -39,17 +51,24 @@
         <br>
         <br>
         <form action="login.php" method="post">
-            <table>
+            <table class="center">
                 <tr>
                     <td>Username</td>
-                    <td>&nbsp;</td>
-                    <td><input class="search-box" type="text" name="user"></td>
+                    <td class="jarak"></td>
+                    <td><input class="login-box" type="text" name="user"></td>
                 </tr>
+                <tr><td colspan="3">
+                    <br>
+                    <br>
+                    <br>
+                    
+                </td></tr>
                 <tr>
                     <td>password</td>
-                    <td>&emsp;</td>
-                    <td><input class="search-box" type="password" name="password"></td>
+                    <td class="jarak"></td>
+                    <td><input class="login-box" type="password" name="password"></td>
                 </tr>
+                
                 <tr>
                     <td colspan="3">
                         <button type="submit" name="submit">Login</button>
@@ -62,7 +81,7 @@
             
         </form>
     </main>
-
+    
     
 </body>
 </html>

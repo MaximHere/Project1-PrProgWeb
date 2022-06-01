@@ -4,6 +4,13 @@ session_start();
 if (isset($_POST["login"])){
     header("Location: login.php");
 }
+elseif (isset($_POST["logout"])) {
+    session_destroy();
+    header("Location: home.php");
+}
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -35,11 +42,24 @@ if (isset($_POST["login"])){
         <div class="topBar">
             <a href="home.php"><img src="pic/home button.png" alt="home icon"></a>
             <h1 id="webname">FULL SEHAT MAZZEHHH</h1>
+            <?php
+                if(isset($_SESSION['username'])){
+                    echo "<h5>Selamat datang, ".$_SESSION['username']."</h5>";
+                }
+                
+            ?>
             <div class="topBar-right">
-                    <form action="home.php" method="post">
+                <form action="home.php" method="post">
                     <input class="search-box" type="text" placeholder="Search Here">
                     <button class="SearchButton">Search</button>
-                    <button class="SearchButton" name="login">Login</button>
+                    <?php
+                    if(isset($_SESSION['username'])){
+                    echo "<button class='SearchButton' name='logout'>Logout</button>";
+                    }
+                    else{
+                        echo "<button class='SearchButton' name='login'>Login</button>";
+                    }
+                    ?>
                 </form>
                 
             </div>
@@ -47,7 +67,7 @@ if (isset($_POST["login"])){
     </header>
 
     <main>
-        <div>
+        <div class="details">
             <h1>Welcome to FULL SEHAT</h1>
             <article>"Ini adalah sebuah web olahragawan sejati..</article>
             <article>bagi kalian kaum rebahan, jangan akses website ini :)"</article>
@@ -67,19 +87,13 @@ if (isset($_POST["login"])){
                     <td class="jarak"></td>
                 </tr>
                 <tr>
-<<<<<<< Updated upstream:home.html
                     <td></td>
-                    <td><a href="Push Up.html">PUSH UP</a></td>
-                    <td></td>
-                    <td><a href="LARI.html">LARI</a></td>
-                    <td></td>
-                    <td><a href="SIT-UP.html">SIT UP</a></td>
-                    <td></td>
-=======
                     <td><a href="Push Up.php">PUSH UP</a></td>
+                    <td></td>
                     <td><a href="LARI.php">LARI</a></td>
+                    <td></td>
                     <td><a href="SIT-UP.php">SIT UP</a></td>
->>>>>>> Stashed changes:home.php
+                    <td></td>
                 </tr>
             </table>
         </div>
@@ -109,6 +123,7 @@ if (isset($_POST["login"])){
             </table>
         </div>
     </main>
+
 
     <footer>
         <p class="CR">Copyright &copy; Fandy Abet Maxim</p>
