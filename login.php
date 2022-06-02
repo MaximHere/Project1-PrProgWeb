@@ -81,12 +81,17 @@ if (isset($_POST['submit'])){
                     </td>
                     
                 </tr>
+                
             </table>
             
             
             
         </form>
     </main>
+
+    <footer>
+        <p class="CR">Copyright &copy; Fandy Abet Maxim</p>
+    </footer>
     
     
 </body>

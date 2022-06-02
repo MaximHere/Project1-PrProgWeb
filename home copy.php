@@ -67,7 +67,7 @@ elseif (isset($_POST["logout"])) {
         </div>
         <br>
         <div class="kolom-pilihan">
-            <h2>Tingkat Kesulitan</h2>
+            <h2>Tipe Olahraga</h2>
             <br>
             <table class="nama-olahraga">
                 <!-- <tr>
@@ -90,27 +90,40 @@ elseif (isset($_POST["logout"])) {
                 </tr> -->
                 
                 
+                
+                
                 <tr>
-                    <td class="jarak"></td>
-                    <td><img src="pic/Diff/beginer.jpg" alt="push-up"> </td>
-                    <td class="jarak"></td>
-                    <td><img src="pic/Diff/Intermediete.jpg" alt="push-up"> </td>
-                    <td class="jarak"></td>
-                    <td><img src="pic/Diff/hard.jpg" alt="push-up"> </td>
-                    <td class="jarak"></td>
+                    <td>
+                        <div class="block-content">
+                            <img src="pic/foto/push-up.jpg" alt="push-up"> 
+                            <br>
+                            <a href="Push Up.php">PUSH UP</a>
+                        </div>                        
+                    </td> 
+                </tr>
+                <tr><td>
+                    <br><br>
+                </td></tr>
+                <tr>
+                    <td><img src="pic/foto/lari.jpg" alt="lari"> </td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td><a href="beginer.php">Beginer</a></td>
-                    <td></td>
-                    <td><a href="intermediete.php">Itermediete</a></td>
-                    <td></td>
-                    <td><a href="SIT-UP.php">Hard</a></td>
-                    <td></td>
+                    <td>
+                        <div class="block-content">
+                            <img src="pic/foto/push-up.jpg" alt="push-up"> 
+                            <br>
+                            <a href="Push Up.php">PUSH UP</a>
+                        </div>                        
+                    </td> 
+                </tr>
+                <tr><td>
+                    <br><br>
+                </td></tr>
+                <tr>
+                    <td><img src="pic/foto/lari.jpg" alt="lari"> </td>
                 </tr>
                 
                 
-
             </table>
         </div>
         <br>
