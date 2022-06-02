@@ -2,7 +2,7 @@
 require 'fungsi.php';
 
 $id = $_GET["id"];
-$sql_q = "SELECT * FROM olahraga NATURAL JOIN instruktor WHERE idOlahraga = '".$id."' ;";
+$sql_q = "SELECT * FROM olahraga WHERE idOlahraga = '".$id."' ;";
 $querry=mysqli_query($konek,$sql_q);
 $data=mysqli_fetch_assoc($querry);
 
@@ -30,9 +30,23 @@ $data=mysqli_fetch_assoc($querry);
         <div class="topBar">
             <a href="home.php"><img src="pic/home button.png" alt="home icon"></a>
             <h1 id="webname">FULL SEHAT MAZZEHHH</h1>
+            <?php
+                if(isset($_SESSION['username'])){
+                    echo "<h5>Selamat datang, ".$_SESSION['username']."</h5>";
+                }
+                
+            ?>
             <div class="topBar-right">
                 <input class="search-box" type="text" placeholder="Search Here">
                 <button class="SearchButton">Search</button>
+                <?php
+                    if(isset($_SESSION['username'])){
+                    echo "<button class='SearchButton' name='logout'>Logout</button>";
+                    }
+                    else{
+                        echo "<button class='SearchButton' name='login'>Login</button>";
+                    }
+                    ?>
             </div>
         </div>
     </header>
@@ -48,10 +62,10 @@ $data=mysqli_fetch_assoc($querry);
                     <h2>Workout Details</h2>
                     <br>
                     <div class="detail-list">
-                        <p>Instructor : <strong><?= $data['namaInstruktor'];?></strong></p>
+                        <p>Instructor : <strong><?= $data['instruktor'];?></strong></p>
                         <p>Duration : <strong><?= $data['durasi'];?></strong></p>
                         <p>Calorie Burn : <strong><?= $data['caloriBurn'];?></strong></p>
-                        <p>Difficulty : <strong><?= $data['Kesulitan'];?></strong></p>
+                        <p>Difficulty : <strong><?= $data['kesulitan'];?></strong></p>
                         <p>Equipment : <strong><?= $data['equipment'];?></strong></p>
                         <p>Trainning Type : <strong>Cardiovascular</strong></p>
                         <p>Video Player : <strong><a href="<?=$data['youtube'];?>" >View on
@@ -85,6 +99,15 @@ $data=mysqli_fetch_assoc($querry);
                 </div>
             </div>
         </div>
+
+
+        <?php
+        if(isset($_SESSION['username'])){
+            echo "<form action='edit_detail.php?id=".$id."' method='post'>";
+            echo '<button class="submit" type="submit">Edit</button>';
+            echo "</form>";
+        }
+        ?>
     </main>
 
     <section class="col-komentar">
