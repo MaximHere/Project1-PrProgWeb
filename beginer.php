@@ -1,14 +1,22 @@
 <?php
-session_start();
+
+use LDAP\Result;
+
+require 'fungsi.php';
 
 if (isset($_POST["login"])){
     header("Location: login.php");
 }
 elseif (isset($_POST["logout"])) {
     session_destroy();
-    header("Location: home.php");
+    header("Location: beginer.php");
 }
 
+// Select Data
+$sql="SELECT * FROM olahraga WHERE Kesulitan = 'Beginner';";
+$result=mysqli_query($konek,$sql);
+
+// var_dump($result);
 ?>
 
 <!DOCTYPE html>
@@ -67,7 +75,7 @@ elseif (isset($_POST["logout"])) {
         </div>
         <br>
         <div class="kolom-pilihan">
-            <h2>Tipe Olahraga</h2>
+            <h2>Daftar Olahraga Beginner</h2>
             <br>
             <table class="nama-olahraga">
                 <!-- <tr>
@@ -90,9 +98,29 @@ elseif (isset($_POST["logout"])) {
                 </tr> -->
                 
                 
+                <?php
+                while ($row=mysqli_fetch_assoc($result)){
+                    echo '<tr>';
+                    echo '<td>';
+                    echo '<div class="block-content">';
+                    echo "<img src='".$row['gambar']."' alt='".$row['namaOlahraga']."'>";
+                    echo '<br>';
+                    echo "<a href='detail_page.php?id=".$row['idOlahraga']."'>".$row['namaOlahraga']."</a>";
+                    
+                    echo "</div>";
+                    echo "</td>";
+                    echo "</tr>";
+                    echo "<tr><td>";
+                    if(isset($_SESSION['username'])){
+                        echo "<a href='detail_page.php?id=".$row['idOlahraga']."'>Edit</a>";
+                    }
+                    echo        "<br><br>
+                        </td></tr>";
+
+                }
+                ?>
                 
-                
-                <tr>
+                <!-- <tr>
                     <td>
                         <div class="block-content">
                             <img src="pic/foto/push-up.jpg" alt="push-up"> 
@@ -121,7 +149,7 @@ elseif (isset($_POST["logout"])) {
                 </td></tr>
                 <tr>
                     <td><img src="pic/foto/lari.jpg" alt="lari"> </td>
-                </tr>
+                </tr> -->
                 
                 
             </table>
