@@ -27,6 +27,9 @@
     </header>
 
     <main>
+        <div class="section-title">
+            <h1>Push up</h1>
+        </div>
         <table class="video-details">
             <tr>
                 <th class="video">
@@ -40,7 +43,7 @@
                         <p>Instructor : <strong>Mbak Sri</strong></p>
                         <p>Duration : <strong>15 minutes</strong></p>
                         <p>Calorie Burn : <strong>100-171</strong></p>
-                        <p>Difficulty : <strong>Hard</strong></p>
+                        <p>Difficulty : <strong>Intermediate</strong></p>
                         <p>Equipment : <strong>Mat</strong></p>
                         <p>Trainning Type : <strong>Cardiovascular</strong></p>
                         <p>Video Player : <strong><a href="https://youtu.be/MgcZ3VQZLnc">View on Youtube</a></strong>
@@ -106,7 +109,11 @@
     </section>
 
     <footer>
-        <p class="CR">Copyright &copy; Fandy Abet Maxim</p>
+        <p class="CR"><span>Copyright &copy;</span>
+            Fandy - 71200532<br>
+            Maxim - 71200535<br>
+            Abet - 71200543
+        </p>
     </footer>
 
 </body>

@@ -24,6 +24,12 @@ if (isset($_POST['submit'])){
         margin-left: auto; 
         margin-right: auto;
         }
+        body {
+            background-image: url(pic/background.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: block;
+        }
     </style>
     <title>Document</title>
 </head>
@@ -36,7 +42,7 @@ if (isset($_POST['submit'])){
     </header>
 
 
-    <main class="details">
+    <main class="detailss">
         <div>
             <h1>Welcome to FULL SEHAT</h1>
             <article>"Ini adalah sebuah web olahragawan sejati..</article>
