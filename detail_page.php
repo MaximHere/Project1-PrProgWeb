@@ -1,6 +1,14 @@
 <?php
 require 'fungsi.php';
 
+if (isset($_POST["login"])){
+    header("Location: login.php");
+}
+elseif (isset($_POST["logout"])) {
+    session_destroy();
+    header("Location: detail_page.php");
+}
+
 $id = $_GET["id"];
 $sql_q = "SELECT * FROM olahraga WHERE idOlahraga = '".$id."' ;";
 $querry=mysqli_query($konek,$sql_q);
@@ -37,6 +45,7 @@ $data=mysqli_fetch_assoc($querry);
                 
             ?>
             <div class="topBar-right">
+                <form action="detail_page.php" method="post">
                 <input class="search-box" type="text" placeholder="Search Here">
                 <button class="SearchButton">Search</button>
                 <?php
@@ -46,7 +55,8 @@ $data=mysqli_fetch_assoc($querry);
                     else{
                         echo "<button class='SearchButton' name='login'>Login</button>";
                     }
-                    ?>
+                ?>
+                </form>
             </div>
         </div>
     </header>
