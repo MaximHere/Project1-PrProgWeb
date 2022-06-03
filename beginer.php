@@ -113,7 +113,7 @@ $result=mysqli_query($konek,$sql);
                     echo "<tr><td>";
                     if(isset($_SESSION['username'])){
                         echo "<a href='edit_detail.php?id=".$row['idOlahraga']."'>Edit</a>";
-                        echo "<a href='edit_detail.php?id=".$row['idOlahraga']."'>Edit</a>";
+                        echo "<a href='edit_detail.php?id=".$row['idOlahraga']."'>Delete</a>";
                     }
                     echo        "<br><br>
                         </td></tr>";

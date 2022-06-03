@@ -21,43 +21,9 @@ else if($_POST){
     $definisi = $_POST["definisi"];
     $manfaat = $_POST["manfaat"];
     $cara = $_POST["cara"];
-    
-    var_dump($_FILES);
 
-    if ($_FILES['fileGambar']['size'] != 0){
-        $isValid = true;
-        $targetFolder = "pic/foto/";
-
-        if($_FILES['fileGambar']['type'] == "image/png"){
-            $ext = ".png";
-        }
-        else if($_FILES['fileGambar']['type'] == "image/jpeg"){
-            $ext = ".jpeg";
-        }
-        else{
-            $isValid = false;
-        }
-
-        if ($isValid){
-            $path = $targetFolder.$namaOlahraga.$ext;
-            var_dump($path);
-            if(move_uploaded_file($_FILES['fileGambar']['tmp_name'], $path)){
-                $sql = "UPDATE olahraga SET namaOlahraga='".$namaOlahraga."', instruktor='".$instruktor."', durasi='".$durasi."', caloriBurn='".$caloriBurn."', 
-                kesulitan='".$kesulitan."', equipment='".$equipment."', youtube='".$youtube."', embedYoutube='".$embedYoutube."', 
-                definisi='".$definisi."', manfaat='".$manfaat."', cara='".$cara."', gambar='".$path."'  WHERE idOlahraga= '".$id."' ";
-
-                
-            }else{
-                echo "<script>alert('Berhasil Upload File')</script>";
-            }
-        }
-
-    }
-    else{
-        $sql = "UPDATE olahraga SET namaOlahraga='".$namaOlahraga."', instruktor='".$instruktor."', durasi='".$durasi."', caloriBurn='".$caloriBurn."', kesulitan='".$kesulitan."', equipment='".$equipment."'
+	$sql = "UPDATE olahraga SET namaOlahraga='".$namaOlahraga."', instruktor='".$instruktor."', durasi='".$durasi."', caloriBurn='".$caloriBurn."', kesulitan='".$kesulitan."', equipment='".$equipment."'
 	, youtube='".$youtube."', embedYoutube='".$embedYoutube."', definisi='".$definisi."', manfaat='".$manfaat."', cara='".$cara."' WHERE idOlahraga= '".$id."' ";
-    }
-	
 
 	if(mysqli_query($konek, $sql)){
         echo "<script>alert('Berhasil mengubah data')</script>";
@@ -72,8 +38,10 @@ else if($_POST){
 }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -100,7 +68,7 @@ else if($_POST){
     </header>
 
     <main>
-        <form action="edit_detail.php" method="post" enctype="multipart/form-data">
+        <form action="edit_detail.php" method="post">
         <input type="hidden" name="idOlahraga" value="<?= $id;?>">
         <table class="video-details">
             
@@ -108,10 +76,8 @@ else if($_POST){
             
                 <th class="video">
                 <label for="namaOlahraga">Nama Olahraga</label>
-                <input type="text" name="namaOlahraga" id="namaOlahraga" value="<?= $data['namaOlahraga'] ;?>" onkeyup="update_field()"><br>
-                    Embeded link: <input type="text" name="embedYoutube" value="<?= $data['embedYoutube'] ;?>"><br>
-                    <label for="fileGambar" class="form-label">Upload Picture</label>
-                    <input class="form-control" type="file" id="fileGambar" name="fileGambar">
+                <input type="text" name="namaOlahraga" id="namaOlahraga" value="" onkeyup="update_field()"><br>
+                    Embeded link: <input type="text" name="embedYoutube" value="">
                     <!-- <iframe width="1024" height="576" src="<?= $data['embedYoutube'] ;?>"
                         title="YouTube video player" frameborder="0" allowfullscreen></iframe> -->
                 </th>
@@ -119,9 +85,9 @@ else if($_POST){
                     <h2>Workout Details</h2>
                     <br>
                     <div class="detail-list">
-                        <p>Instructor : <input type="text" name="instruktor" value="<?= $data['instruktor'];?>"></p>
-                        <p>Duration : <input type="text" name="durasi" value="<?= $data['durasi'];?>"></p>
-                        <p>Calorie Burn : <input type="text" name="caloriBurn" value="<?= $data['caloriBurn'];?>"></p>
+                        <p>Instructor : <input type="text" name="instruktor" value=""></p>
+                        <p>Duration : <input type="text" name="durasi" value=""></p>
+                        <p>Calorie Burn : <input type="text" name="caloriBurn" value=""></p>
                         <p>Difficulty : 
                             <select name="kesulitan" id="">
                                 <option value="Beginner">Beginner</option>
@@ -129,9 +95,9 @@ else if($_POST){
                                 <option value="Hard">Hard</option>
                             </select>
                             </p>
-                        <p>Equipment : <input type="text" name="equipment" value="<?= $data['equipment'];?>"></p>
+                        <p>Equipment : <input type="text" name="equipment" value=""></p>
                         <p>Trainning Type : <strong>Cardiovascular</strong></p>
-                        <p>Link Youtube : <input type="text" name="youtube" value="<?= $data['youtube'];?>"></p>
+                        <p>Link Youtube : <input type="text" name="youtube" value=""></p>
                     </div>
                 </th>
             </tr>
@@ -141,14 +107,14 @@ else if($_POST){
                 <h2 class="Title">Apa itu Olahraga <span class="namaOlahraga"></span> ?</h2>
                 <br>
                 <p class="text">
-                    <textarea name="definisi" id="definisi" cols="110" rows="5"><?= $data['definisi'];?></textarea>
+                    <textarea name="definisi" id="definisi" cols="110" rows="5"></textarea>
                 </p>
             </div>
             <div class="Desc">
                 <h2 class="Title">Manfaat dari Olahraga <span class="namaOlahraga"></span></h2>
                 <br>
                 <p class="text">
-                <textarea name="manfaat" id="manfaat" cols="110" rows="5"><?= $data['manfaat'];?></textarea>
+                <textarea name="manfaat" id="manfaat" cols="110" rows="5"></textarea>
                 </p>
             </div>
 
@@ -156,12 +122,12 @@ else if($_POST){
                 <h2 class="Title"> Cara Melakukan <span class="namaOlahraga"></span> dengan Benar</h2>
                 <br>
                 <div class="text">
-                    <p><textarea name="cara" id="cara" cols="110" rows="5"><?=$data['cara'];?></textarea></p>
+                    <p><textarea name="cara" id="cara" cols="110" rows="5"></textarea></p>
                     <br>
                 </div>
             </div>
         </div>
-        <button type="submit" name="submit_edit" class="submit">Save</button>
+        <button type="submit" name="submit_edit" class="submit">Create</button>
         </form>
 
         

@@ -9,6 +9,9 @@ elseif (isset($_POST["logout"])) {
     header("Location: home.php");
 }
 
+// Select Data
+$sql="SELECT * FROM olahraga;";
+$result=mysqli_query($konek,$sql);
 ?>
 
 <!DOCTYPE html>
@@ -114,6 +117,56 @@ elseif (isset($_POST["logout"])) {
             </table>
         </div>
         <br>
+        <div class="kolom-pilihan">
+            <h2>Daftar Olahraga Beginner</h2>
+            <br>
+            <table class="nama-olahraga">
+                <!-- <tr>
+                    <td class="jarak"></td>
+                    <td><img src="pic/foto/push-up.jpg" alt="push-up"> </td>
+                    <td class="jarak"></td>
+                    <td><img src="pic/foto/lari.jpg" alt="lari"> </td>
+                    <td class="jarak"></td>
+                    <td><img src="pic/foto/sit-up.jpg" alt="sit-up"> </td>
+                    <td class="jarak"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><a href="Push Up.php">PUSH UP</a></td>
+                    <td></td>
+                    <td><a href="LARI.php">LARI</a></td>
+                    <td></td>
+                    <td><a href="SIT-UP.php">SIT UP</a></td>
+                    <td></td>
+                </tr> -->
+                
+                
+                <?php
+                while ($row=mysqli_fetch_assoc($result)){
+                    echo '<tr>';
+                    echo '<td>';
+                    echo '<div class="block-content">';
+                    echo "<img src='".$row['gambar']."' alt='".$row['namaOlahraga']."'>";
+                    echo '<br>';
+                    echo "<a href='detail_page.php?id=".$row['idOlahraga']."'>".$row['namaOlahraga']."</a>";
+                    
+                    echo "</div>";
+                    echo "</td>";
+                    echo "</tr>";
+                    echo "<tr><td>";
+                    if(isset($_SESSION['username'])){
+                        echo "<a href='edit_detail.php?id=".$row['idOlahraga']."'>Edit</a>";
+                        echo "<a href='edit_detail.php?id=".$row['idOlahraga']."'>Delete</a>";
+                    }
+                    echo        "<br><br>
+                        </td></tr>";
+
+                }
+                ?>
+                
+                
+            </table>
+        </div>
         <br>
         <div class="kolom-pilihan">
             <h2>Instruktur</h2>
