@@ -1,0 +1,484 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.header {
+    min-height: 60vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(../asset/BG/jogging.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+nav {
+    background: #4864e1;
+    display: flex;
+    padding: 10px 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav img {
+    width: 350px;
+}
+
+
+/* SEARCH BOX + LOGIN/LOGOUT */
+
+.search-box {
+    background-color: transparent;
+    margin-right: 10px;
+    width: 100px;
+    padding: 5px 30px;
+    text-align: left;
+    border: 2px #ededed solid;
+    border-radius: 50px;
+    font-size: 14px;
+    font-style: italic;
+    color: #ededed;
+    -webkit-transition: width .35s ease-in-out;
+    transition: width .35s ease-in-out;
+}
+
+.search-box:focus {
+    outline-color: #ededed;
+    background-color: #ededed;
+    color: #3c3c3c;
+    width: 200px;
+}
+
+.search-box::placeholder {
+    color: #ededed;
+    opacity: 1;
+}
+
+
+.search-btn {
+    background-color: transparent;
+    border: 2px #ededed solid;
+    padding: 5px 18px;
+    margin-right: 10px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.search-btn i {
+    color: #ededed;
+}
+
+
+
+.user-btn {
+    background-color: #4864e1;
+    border: 2px #ededed solid;
+    color: white;
+    padding: 5px 18px;
+    margin-right: 10px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.user-btn:hover {
+    background-color: #ededed;
+    outline-color: #4864e1;
+    color: #4864e1;
+    transition: 1s;
+}
+
+
+
+
+/* NAVIGATION */
+
+.nav-links {
+    background-color: #3144998d;
+    text-align: center;
+}
+
+.nav-links ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+
+.nav-links ul li a {
+    color: #ededed;
+    text-decoration: none;
+    font: 12px;
+    font-weight: bold;
+}
+
+.link::after {
+    content: '';
+    width: 100%;
+    height: 3px;
+    background-color: #ededed;
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .7s ease;
+}
+
+.link:hover::after {
+    transform: scaleX(1);
+}
+
+/* WELCOME USER */
+
+#welcome-user {
+    margin: 0 auto;
+    width: 400px;
+    padding: 5px;
+    font-size: 20px;
+    background-color: #31449987;
+    border-radius: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #ededed;
+}
+
+/* TEXT */
+.web-title {
+    width: 90%;
+    color: #fff;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.web-title h1 {
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 64px;
+
+}
+
+.web-title p {
+    margin: 0 0 40px;
+    font-size: 16px;
+}
+
+/* BUTTON PILIH */
+
+.pilih-btn {
+    background: none;
+    border: none;
+    color: #ededed;
+    font-size: 20px;
+    font-weight: bold;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 50px;
+    padding: 12px 36px;
+    position: relative;
+    cursor: pointer;
+}
+
+.pilih-btn:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(calc(40% + 4px));
+    width: 40px;
+    height: 40px;
+    background: #4864e1;
+    border-radius: 50px;
+    transition: transform .25s .25s cubic-bezier(0, 0, .5, 2), width .25s cubic-bezier(0, 0, .5, 2);
+    z-index: -1;
+}
+
+.pilih-btn:hover::before {
+    width: 85%;
+    transform: translateY(-50%) translateX(-18px);
+    transition: transform .25s cubic-bezier(0, 0, .5, 2), width .25s .25s cubic-bezier(0, 0, .5, 2);
+}
+
+.pilih-btn i {
+    margin-left: 5px;
+    transition: transform .25s .4s cubic-bezier(0, 0, .5, 2);
+}
+
+.pilih-btn:hover i {
+    transform: translateX(3px);
+}
+
+
+
+
+
+
+
+/* DIFFICULTY SECTION */
+
+.hr-difficulty {
+    margin: auto;
+    width: 10%;
+    height: 10px;
+    background-color: #4864e1;
+    border: none;
+    border-radius: 50px;
+}
+
+
+.difficulty {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+}
+
+
+.diff-row {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+h1 {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    padding: 10px;
+}
+
+
+.diff-col {
+    margin: auto;
+    flex-basis: 30%;
+    background: #e1e1e1;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 40px 12px;
+    box-sizing: border-box;
+    transition: 0.5s;
+}
+
+h3 {
+    text-align: center;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+.diff-col:hover {
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+}
+
+
+a {
+    text-decoration: none;
+}
+
+.diff-btn {
+    color: #ededed;
+    font-size: 12px;
+    font-weight: 600;
+    margin: auto;
+    letter-spacing: 2px;
+    margin-top: 5px;
+    text-align: center;
+    background-color: #4864e1;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 30px;
+    transition: 0.5s;
+}
+
+.diff-btn:hover {
+    background-color: #e1e1e1;
+    color: #4864e1;
+    box-shadow: 0 0 20px #4864e1;
+}
+
+
+
+
+/* OLAHRAGA SECTION */
+.hr-olahraga {
+    margin: auto;
+    width: 20%;
+    height: 10px;
+    background-color: #4864e1;
+    border: none;
+    border-radius: 50px;
+}
+
+.olahraga {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.olahraga-row {
+    width: 70%;
+    margin: auto;
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.olahraga-col {
+    flex-basis: 30%;
+    margin-bottom: 5%;
+    padding: 40px 12px;
+    position: relative;
+    overflow: hidden;
+    place-content: center;
+    transition: transform 0.7s;
+}
+
+.olahraga-col img {
+    display: block;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.olahraga-col:hover {
+    transform: scale(1.02);
+}
+
+.olahraga-btn {
+    font-size: 20px;
+    font-weight: 600;
+    color: #ededed;
+    background-color: #4864e1;
+    border: none;
+    border-radius: 50px;
+    padding: 0 20px;
+    position: absolute;
+    right: 35px;
+    bottom: 70px;
+    box-shadow: 0 0 12px 3px #4864e1;
+    transition: 0.5s;
+}
+
+.olahraga-btn:hover {
+    background-color: #e1e1e1;
+    color: #4864e1;
+}
+
+
+
+/* INSTRUKTUR */
+
+.hr-instruktur {
+    margin: auto;
+    width: 20%;
+    height: 10px;
+    background-color: #4864e1;
+    border: none;
+    border-radius: 50px;
+}
+
+.instruktur {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.instruktur-title {
+    margin-bottom: 10px;
+}
+
+.instruktur-row {
+    width: 55%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.instruktur-col {
+    flex-basis: 20%;
+    margin-bottom: 5%;
+    padding: 5px 20px;
+    background: #e1e1e1;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    position: relative;
+    overflow: hidden;
+    place-content: center;
+    transition: transform 0.7s;
+}
+
+.instruktur-col h3 {
+    margin-bottom: 50px;
+}
+
+.instruktur-col img {
+    display: block;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.instruktur-col:hover {
+    transform: scale(1.02);
+}
+
+
+.instruktur-btn {
+    margin-bottom: 10px;
+}
+
+.instruktur-btn a {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #c0c0c0;
+    color: black;
+    border: none;
+    border-radius: 50px;
+    margin: auto;
+    padding: 0 20px;
+    transition: 0.5s;
+}
+
+.instruktur-btn a:hover {
+    background-color: #4864e1;
+    color: #ededed;
+    box-shadow: 0 0 12px 2px #4864e1;
+}
+
+
+
+/* ========== FOOTER =========== */
+.footer {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    background-color: #ffffffab;
+}
+
+.footer h5 {
+    color: #4864e1;
+    padding-right: 40px;
+    padding: 20px 20px;
+    font-size: 12pt;
+    text-align: right;
+}
