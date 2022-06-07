@@ -1,18 +1,15 @@
 <?php
-require '../fungsi.php';
+require 'fungsi.php';
 
-if (isset($_POST["login"])) {
-    header("Location: login.php");
-} elseif (isset($_POST["logout"])) {
-    session_destroy();
-    header("Location: detail_page.php");
-}
 
 $id = $_GET["id"];
 $sql_q = "SELECT * FROM olahraga WHERE idOlahraga = '" . $id . "' ;";
 $querry = mysqli_query($konek, $sql_q);
 $data = mysqli_fetch_assoc($querry);
 
+// if (isset($_POST["edit"])){
+//     header("Location: admin/edit_page.php?id=".$id);
+// }
 
 ?>
 
@@ -20,7 +17,7 @@ $data = mysqli_fetch_assoc($querry);
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="../style/details.css">
+    <link rel="stylesheet" href="style/details.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,7 +31,7 @@ $data = mysqli_fetch_assoc($querry);
 <body>
     <section class="header">
         <nav>
-            <a href="../home.php"><img src="../asset/logo-blue.png" alt="logo"></a>
+            <a href="home.php"><img src="asset/logo-blue.png" alt="logo"></a>
 
             <div class="search">
                 <form action="home.php" method="post">
@@ -45,6 +42,7 @@ $data = mysqli_fetch_assoc($querry);
                             <li><a href="" class="link">WORKOUT TYPE</a></li>
                         </ul>
                     </div>
+                </form>
         </nav>
     </section>
     <br>
@@ -105,8 +103,8 @@ $data = mysqli_fetch_assoc($querry);
 
         <?php
         if (isset($_SESSION['username'])) {
-            echo "<div class='edit'><form action='edit_detail.php?id=" . $id . "' method='post'>";
-            echo '<button class="admin-submit" type="submit">Edit</button>';
+            echo "<div class='edit'><form action='admin/edit_page.php?id=" . $id . "' method='post'>";
+            echo '<button class="admin-submit" type="submit" name="edit">Edit</button>';
             echo "</form></div>";
         }
         ?>

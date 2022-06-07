@@ -72,7 +72,7 @@ $result = mysqli_query($konek, $sql);
     </div>
 
     <!-- OLAHRAGA -->
-    <section class="difficulty">
+    <section class="difficulty" id="difficulty">
         <h1>DIFFICULTY</h1>
         <hr class="hr-difficulty">
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur, <br>
@@ -131,6 +131,11 @@ $result = mysqli_query($konek, $sql);
             <div class="olahraga-col">
                 <img src="asset/foto_/pushup-portrait.png" alt="pushup">
                 <a class="olahraga-btn" href="pushup.php">DETAILS</a>
+            </div>
+
+            <div class="olahraga-col">
+                <img src="asset/foto_/situp-portrait.png" alt="situp">
+                <a class="olahraga-btn" href="situp.php">DETAILS</a>
             </div>
 
             <div class="olahraga-col">

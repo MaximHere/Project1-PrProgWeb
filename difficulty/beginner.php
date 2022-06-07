@@ -36,13 +36,14 @@ $result = mysqli_query($konek, $sql);
 <body>
     <section class="header">
         <nav>
-            <a href="home.php"><img src="../asset/logo-blue.png" alt="logo"></a>
+            <a href="../home.php"><img src="../asset/logo-blue.png" alt="logo"></a>
 
             <div class="search">
                 <form action="home.php" method="post">
                     <div class="nav-links">
                         <ul>
                             <li><a href="../home.php" class="link">HOME</a></li>
+                            <li><a href="../home.php#difficulty" class="link">WORKOUT DIFFICULTY</a></li>
                             <li><a href="" class="link">INSTRUCTOR</a></li>
                             <li><a href="" class="link">WORKOUT TYPE</a></li>
                         </ul>
@@ -73,7 +74,7 @@ $result = mysqli_query($konek, $sql);
                     echo '<div>';
                     echo "<img src='" . $row['gambar'] . "' alt='" . $row['namaOlahraga'] . "'>";
                     echo '<br>';
-                    echo "<a href='../admin/detail_page.php?id=" . $row['idOlahraga'] . "'>" . $row['namaOlahraga'] . "</a>";
+                    echo "<a href='../detail_page.php?id=" . $row['idOlahraga'] . "'>" . $row['namaOlahraga'] . "</a>";
                     echo "</div>";
                     echo "<div>";
                     if (isset($_SESSION['username'])) {
