@@ -4,12 +4,6 @@ use LDAP\Result;
 
 require '../fungsi.php';
 
-if (isset($_POST["login"])) {
-    header("Location: login.php");
-} elseif (isset($_POST["logout"])) {
-    session_destroy();
-    header("Location: beginner.php");
-}
 
 // Select Data
 $sql = "SELECT * FROM olahraga WHERE Kesulitan = 'Beginner';";
@@ -78,7 +72,7 @@ $result = mysqli_query($konek, $sql);
                     echo "</div>";
                     echo "<div>";
                     if (isset($_SESSION['username'])) {
-                        echo "<a href='../admin/edit_detail.php?id=" . $row['idOlahraga'] . "'>Edit</a><br>";
+                        echo "<a href='../admin/edit_page.php?id=" . $row['idOlahraga'] . "'>Edit</a><br>";
                         echo "<a href='../admin/edit_detail.php?id=" . $row['idOlahraga'] . "'>Delete</a>";
                     }
                     echo "<br><br> 

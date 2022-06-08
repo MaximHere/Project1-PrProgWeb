@@ -1,12 +1,6 @@
 <?php
 require '../fungsi.php';
 
-if (isset($_POST["login"])) {
-    header("Location: login.php");
-} elseif (isset($_POST["logout"])) {
-    session_destroy();
-    header("Location: detail_page.php");
-}
 
 if($_GET){
 	$id = $_GET["id"];
@@ -33,7 +27,7 @@ else if($_POST){
 
     if ($_FILES['fileGambar']['size'] != 0){
         $isValid = true;
-        $targetFolder = "pic/foto/";
+        $targetFolder = "../asset/foto/";
 
         if($_FILES['fileGambar']['type'] == "image/png"){
             $ext = ".png";
@@ -73,7 +67,7 @@ else if($_POST){
 	else{
         echo "<script>alert('Gagal mengubah data')</script>";
 	}
-    header("Location: detail_page.php?id=".$id);
+    header("Location: ../detail_page.php?id=".$id);
 }
 
 
@@ -104,10 +98,10 @@ else if($_POST){
             <a href="../home.php"><img src="../asset/logo-blue.png" alt="logo"></a>
 
             <div class="search">
-                <form action="home.php" method="post">
+                <form action="../home.php" method="post">
                     <div class="nav-links">
                         <ul>
-                            <li><a href="../home.php" class="link">HOME</a></li>
+                            <li><a href="home.php" class="link">HOME</a></li>
                             <li><a href="" class="link">INSTRUCTOR</a></li>
                             <li><a href="" class="link">WORKOUT TYPE</a></li>
                         </ul>
@@ -122,6 +116,7 @@ else if($_POST){
         }
         ?>
     <form action="edit_page.php" method="post">
+    <input type="hidden" name="idOlahraga" value="<?= $id;?>">
     <section class="head-container">
         <div class="title-head">
             <label for="namaOlahraga">Nama Olahraga: </label>
@@ -167,7 +162,7 @@ else if($_POST){
             <h1 class="title">Manfaat <?= $data['namaOlahraga']; ?> </h1>
             <hr class="line-article">
             <div class="text">
-                <p><?= $data['manfaat']; ?></p>
+                <p><textarea name="manfaat" id="manfaat" cols="80" rows="5"><?= $data['manfaat'];?></textarea></p>
             </div>
         </div>
 
@@ -175,18 +170,14 @@ else if($_POST){
             <h1 class="title">Cara Melakukan <?= $data['namaOlahraga']; ?> </h1>
             <hr class="line-article">
             <div class="text">
-                <p><?= $data['cara']; ?></p>
+                <p><textarea name="cara" id="cara" cols="80" rows="5"><?=$data['cara'];?></textarea></p>
             </div>
         </div>
     </section>
+    <div class="edit"> 
+    <button class="admin-submit" type="submit" name="submit" onclick="confirm('Apakah anda yakin akan mengubah data ini?')">Save</button>
+    </div>
     </form>
-        <?php
-        if (isset($_SESSION['username'])) {
-            echo "<div class='edit'><form action='edit_detail.php?id=" . $id . "' method='post'>";
-            echo '<button class="admin-submit" type="submit">Edit</button>';
-            echo "</form></div>";
-        }
-        ?>
 
 
     <section class="col-komentar">

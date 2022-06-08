@@ -35,8 +35,8 @@ $result = mysqli_query($konek, $sql);
             <a href="home.php"><img src="asset/logo.png" alt="logo"></a>
 
             <div class="search">
-                <form action="home.php" method="post">
-                    <input class="search-box" type="text" placeholder="Search Here">
+                <form action="cari.php" method="post">
+                    <input class="search-box" type="text" placeholder="Search Here" name="cari">
                     <button class="search-btn"><i class='fa fa-search'></i></button>
                     <?php
                     if (isset($_SESSION['username'])) {

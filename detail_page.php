@@ -37,7 +37,7 @@ $data = mysqli_fetch_assoc($querry);
                 <form action="home.php" method="post">
                     <div class="nav-links">
                         <ul>
-                            <li><a href="../home.php" class="link">HOME</a></li>
+                            <li><a href="home.php" class="link">HOME</a></li>
                             <li><a href="" class="link">INSTRUCTOR</a></li>
                             <li><a href="" class="link">WORKOUT TYPE</a></li>
                         </ul>
