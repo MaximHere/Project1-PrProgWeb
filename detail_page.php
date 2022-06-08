@@ -110,18 +110,6 @@ $data = mysqli_fetch_assoc($querry);
         ?>
 
 
-    <section class="col-komentar">
-        <div class="komentar-content">
-            <div class="komentar-title">
-                <h3>Comment</h3>
-            </div>
-            <form action="/form/submit" method="POST">
-                <textarea class="comment" placeholder="Type your comment here."></textarea>
-                <br>
-                <button class="submit-comment">Send</button>
-            </form>
-        </div>
-    </section>
 
     <section class="footer">
         <h5>Copyright &copy; Fandy Abet Maxim</h5>

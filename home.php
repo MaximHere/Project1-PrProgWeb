@@ -37,15 +37,17 @@ $result = mysqli_query($konek, $sql);
             <div class="search">
                 <form action="cari.php" method="post">
                     <input class="search-box" type="text" placeholder="Search Here" name="cari">
-                    <button class="search-btn"><i class='fa fa-search'></i></button>
+                    <button class="search-btn"><i class='fa fa-search'></i></button></form>
                     <?php
+                    echo "<form action='home.php' method='post'>";
                     if (isset($_SESSION['username'])) {
                         echo "<button class='user-btn' name='logout'>Logout</button>";
                     } else {
                         echo "<button class='user-btn' name='login'>Login</button>";
                     }
+                    echo "</form>";
                     ?>
-                </form>
+            </div>
         </nav>
 
         <div class="nav-links">
