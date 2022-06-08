@@ -42,6 +42,7 @@ $result = mysqli_query($konek, $sql);
                             <li><a href="" class="link">WORKOUT TYPE</a></li>
                         </ul>
                     </div>
+                </form>
         </nav>
     </section>
     <br>
@@ -81,6 +82,13 @@ $result = mysqli_query($konek, $sql);
                 ?>
             </div>
         </div>
+        <?php
+        if (isset($_SESSION['username'])) {
+            echo "<form action='../admin/create_detail.php' method='post'>";
+            echo "<button class='admin-create' type='submit' >Create</button>";
+            echo "</form>";
+        }
+        ?>
     </section>
 
     <section class="instruktur">

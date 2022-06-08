@@ -159,7 +159,7 @@ else if($_POST){
 
     <section class="article-container">
         <div class="article-content">
-            <h1 class="title">Manfaat <?= $data['namaOlahraga']; ?> </h1>
+            <h1 class="title">Manfaat <span class="namaOlahraga"><?= $data['namaOlahraga']; ?></span> </h1>
             <hr class="line-article">
             <div class="text">
                 <p><textarea name="manfaat" id="manfaat" cols="80" rows="5"><?= $data['manfaat'];?></textarea></p>
@@ -167,7 +167,7 @@ else if($_POST){
         </div>
 
         <div class="article-content">
-            <h1 class="title">Cara Melakukan <?= $data['namaOlahraga']; ?> </h1>
+            <h1 class="title">Cara Melakukan <span class="namaOlahraga"><?= $data['namaOlahraga']; ?></span> </h1>
             <hr class="line-article">
             <div class="text">
                 <p><textarea name="cara" id="cara" cols="80" rows="5"><?=$data['cara'];?></textarea></p>
@@ -198,4 +198,15 @@ else if($_POST){
     </section>
 
 </body>
+<script>
+    update_field();
+    function update_field(){
+        var namaOlahraga = document.getElementById("namaOlahraga");
+        var fieldJudul = document.getElementsByClassName("namaOlahraga");
+        for (let i = 0; i < fieldJudul.length; i++) {
+            fieldJudul[i].innerHTML = namaOlahraga.value;
+            
+        }
+    }
+</script>
 </html>

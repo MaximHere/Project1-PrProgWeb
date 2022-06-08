@@ -156,7 +156,6 @@ else if($_POST){
             fieldJudul[i].innerHTML = namaOlahraga.value;
             
         }
-        // fieldJudul.innerHTML = namaOlahraga.value;
     }
 </script>
 </html>
