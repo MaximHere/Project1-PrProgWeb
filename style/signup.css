@@ -13,6 +13,7 @@ html {
 
 body {
     width: 100%;
+    position: relative;
     background-color: #f7f7f7;
     background-image: url(../asset/BG/line/bg-white.png);
     display: grid;
@@ -161,13 +162,13 @@ form {
 
 /* LOGIN BUTTON */
 
-.login-button {
+.signup-button {
     float: right;
-    background-color: #4864e1;
+    background-color: #ededed;
     padding: 10px 40px;
-    color: #ededed;
+    color: #4864e1;
     border-radius: 50px;
-    margin-left: 10px;
+    margin-right: 10px;
     border: none;
     cursor: pointer;
     font-size: 14px;
@@ -176,12 +177,11 @@ form {
     transition: 1s;
 }
 
-.login-button:hover {
+.signup-button:hover {
     background-color: #fff;
     color: #4864e1;
     box-shadow: 0 0 20px #4864e1;
 }
-
 
 
 .footer {

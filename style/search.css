@@ -193,199 +193,69 @@ nav img {
 }
 
 
-/* ====================== TITLE + VIDEO ===================== */
 
-
-.head-container {
-    width: 70%;
-    margin: auto;
+/* SEARCH BOX */
+.search {
     text-align: center;
-}
-
-.title-head {
-    margin-bottom: 50px;
-}
-
-.title-head h1 {
-    font-size: 56px;
-    font-weight: 800;
-    color: #4864e1;
-    text-shadow: 0 0 12px #6a85ff;
-}
-
-.title-head p {
-    width: 90%;
-    margin: auto;
-    border: none;
-    border-radius: 20px;
-    background: #e1e1e180;
-    padding: 20px;
-    transition: 0.5s;
-}
-
-.title-head p:hover {
-    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
-}
-
-.video-details {
-    margin: auto;
-    border-collapse: collapse;
-    text-align: center;
-    border-radius: 20px;
-    background: #6d83ff9b;
-}
-
-.video-details th {
-    text-align: center;
-    width: 70%;
-    height: 600px;
-    border: none;
-    border-collapse: collapse;
-}
-
-.video iframe {
-    width: 90%;
-    height: 500px;
-}
-
-
-.details h2 {
-    font-size: 40px;
-    color: #fff;
-    padding-right: 40px;
-    text-shadow: 0 0 10px #fff;
-}
-
-.detail-list {
-    font-size: 12pt;
-    margin: auto;
-    color: #fff;
-    font-weight: 300;
-    text-align: left;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    margin-right: 20px;
-}
-
-.details .detail-list strong {
-    font-weight: 700;
-}
-
-.detail-list a {
-    text-decoration: underline;
-    color: #4864e1;
-}
-
-
-
-
-/* =============== ARTICLE ================= */
-
-.article-container {
-    width: 80%;
-    margin: auto;
-    text-align: justify;
-    padding-top: 50px;
-}
-
-.article-content {
-    margin-bottom: 20px;
-}
-
-.article-content h1 {
-    text-align: center;
-}
-
-.list {
-    display: inline-block;
-    padding-left: 20px;
-    padding-top: 10px;
     position: relative;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 10px;
 }
 
-
-.line-article {
+.hr-search {
+    margin: auto;
     width: 10%;
-    height: 5px;
-    border: none;
-    border-radius: 5px;
+    height: 10px;
     background-color: #4864e1;
-    margin: auto;
-    margin-bottom: 20px;
-}
-
-
-/* ========== KOLOM KOMENTAR =========== */
-
-.col-komentar {
-    width: 60%;
-    margin: auto;
-    margin-bottom: 30px;
-    margin-top: 20px;
-}
-
-.komentar-content .komentar-title {
-    width: 50%;
-}
-
-.komentar-content h3 {
-    font-size: 18pt;
-    margin-bottom: 10px;
-}
-
-.comment {
-    width: 100%;
-    height: 100px;
-    padding: 10px;
-    color: #242424;
-    margin-bottom: 10px;
-}
-
-.comment::placeholder {
-    font-style: italic;
-    color: #555555;
-}
-
-.submit-comment {
-    font-size: 14px;
-    font-weight: bold;
-    color: #fff;
-    width: 100px;
     border: none;
     border-radius: 50px;
-    padding: 5px 5px;
-    background-color: #4864e1;
-    transition: 1s;
+    margin-bottom: 25px;
+}
+
+.search h1 {
+    font-size: 40px;
+    text-transform: capitalize;
+    font-weight: 700;
+    margin-bottom: 5px;
 }
 
 
-.submit-comment:hover {
-    background-color: #fff;
-    color: #4864e1;
+.search-box {
+    width: 50%;
+    border: none;
+    height: 25px;
+    border-radius: 50px;
+    padding: 12px 20px;
+    outline: none;
+    font-size: 20px;
+    text-align: center;
+    color: #3c3c3c;
+    background-color: #ededed;
     box-shadow: 0 0 12px #4864e1;
 }
 
 
-.edit {
-    margin: 20px auto;
-    width: 400px;
-
+/* HASIL PENCARIAN */
+.hasil {
+    width: 70%;
+    margin: 50px auto;
 }
 
-.admin-submit {
+.hasil h2 {
     font-size: 20px;
-    font-weight: bold;
-    color: #fff;
-    border: none;
-    border-radius: 50px;
-    padding: 5px 25px;
-    width: 400px;
-    margin-bottom: 20px;
-    background-color: #4864e1;
-    position: relative;
-    margin: auto;
-    cursor: pointer;
+    font-weight: 400;
 }
+
+.hasil hr {
+    border: 1px #4864e1 solid;
+}
+
+.hasil ul li {
+    margin-top: 10px;
+    margin-left: 50px;
+}
+
 
 
 
@@ -393,7 +263,7 @@ nav img {
 .footer {
     position: absolute;
     width: 100%;
-    height: 80px;
+    height: 100px;
     background-color: #ffffffab;
 }
 

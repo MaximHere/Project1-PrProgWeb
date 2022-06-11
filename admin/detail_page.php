@@ -1,15 +1,18 @@
 <?php
-require 'fungsi.php';
+require '../fungsi.php';
 
+if (isset($_POST["login"])) {
+    header("Location: login.php");
+} elseif (isset($_POST["logout"])) {
+    session_destroy();
+    header("Location: detail_page.php");
+}
 
 $id = $_GET["id"];
 $sql_q = "SELECT * FROM olahraga WHERE idOlahraga = '" . $id . "' ;";
 $querry = mysqli_query($konek, $sql_q);
 $data = mysqli_fetch_assoc($querry);
 
-// if (isset($_POST["edit"])){
-//     header("Location: admin/edit_page.php?id=".$id);
-// }
 
 ?>
 
@@ -17,7 +20,7 @@ $data = mysqli_fetch_assoc($querry);
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="style/details.css">
+    <link rel="stylesheet" href="../style/details.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,26 +34,34 @@ $data = mysqli_fetch_assoc($querry);
 <body>
     <section class="header">
         <nav>
-            <a href="home.php"><img src="asset/logo-blue.png" alt="logo"></a>
+            <a href="../home.php"><img src="../asset/logo-blue.png" alt="logo"></a>
 
-            <div class="search">
+            <div class="nav-right">
                 <form action="home.php" method="post">
                     <div class="nav-links">
                         <ul>
                             <li><a href="home.php" class="link">HOME</a></li>
-                            <li><a href="" class="link">INSTRUCTOR</a></li>
-                            <li><a href="" class="link">WORKOUT TYPE</a></li>
+                            <li><a href="#olahraga" class="link">OLAHRAGA</a></li>
+                            <li><a href="#instruktur" class="link">INSTRUKTUR</a></li>
+                            <li>
+                                <?php
+                                if (isset($_SESSION['username'])) {
+                                    echo "<button class='user-btn' name='logout'>Logout</button>";
+                                } else {
+                                    echo "<button class='user-btn' name='login'>Login</button>";
+                                }
+                                ?></li>
                         </ul>
                     </div>
                 </form>
-        </nav>
+            </div>
     </section>
     <br>
     <?php
-        if (isset($_SESSION['username'])) {
-            echo "<h5 id='welcome-user'>Selamat datang, " . $_SESSION['username'] . "</h5><br>";
-        }
-        ?>
+    if (isset($_SESSION['username'])) {
+        echo "<h5 id='welcome-user'>Selamat datang, " . $_SESSION['username'] . "</h5><br>";
+    }
+    ?>
 
     <section class="head-container">
         <div class="title-head">
@@ -101,15 +112,27 @@ $data = mysqli_fetch_assoc($querry);
         </div>
     </section>
 
-        <?php
-        if (isset($_SESSION['username'])) {
-            echo "<div class='edit'><form action='admin/edit_page.php?id=" . $id . "' method='post'>";
-            echo '<button class="admin-submit" type="submit" name="edit">Edit</button>';
-            echo "</form></div>";
-        }
-        ?>
+    <?php
+    if (isset($_SESSION['username'])) {
+        echo "<div class='edit'><form action='edit_detail.php?id=" . $id . "' method='post'>";
+        echo '<button class="admin-submit" type="submit">Edit</button>';
+        echo "</form></div>";
+    }
+    ?>
 
 
+    <section class="col-komentar">
+        <div class="komentar-content">
+            <div class="komentar-title">
+                <h3>Comment</h3>
+            </div>
+            <form action="/form/submit" method="POST">
+                <textarea class="comment" placeholder="Type your comment here."></textarea>
+                <br>
+                <button class="submit-comment">Send</button>
+            </form>
+        </div>
+    </section>
 
     <section class="footer">
         <h5>Copyright &copy; Fandy Abet Maxim</h5>

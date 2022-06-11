@@ -9,10 +9,11 @@
 body {
     background-color: #f7f7f7;
     background-image: url(../asset/BG/line/bg-white.png);
-    background-position: center;
     background-size: cover;
-    position: relative;
 }
+
+
+/* HEADER */
 
 .header {
     width: 100%;
@@ -31,35 +32,148 @@ nav img {
     width: 350px;
 }
 
+
+/* LOGIN/LOGOUT */
+
+.login-btn {
+    padding: 5px 18px;
+    margin-right: 10px;
+    background-color: transparent;
+    border: 2px #4864e1 solid;
+    color: #4864e1;
+    padding: 5px 18px;
+    text-align: center;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background-color: #4864e1;
+    border-color: #4864e1;
+    outline-color: #4864e1;
+    color: #ededed;
+    transition: 1s;
+}
+
+.sign-btn {
+    background-color: transparent;
+    border: 2px #4864e1 solid;
+    color: #4864e1;
+    padding: 5px 18px;
+    text-align: center;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.sign-btn:hover {
+    background-color: #c1c1c1;
+    outline-color: #4864e1;
+    color: #4864e1;
+    transition: 1s;
+}
+
+
+
+/* NAVIGATION */
+
+.nav-links {
+    padding: 0 50px;
+    text-align: left;
+    background-color: #ededed;
+}
+
+
 .nav-links ul li {
     list-style: none;
     display: inline-block;
-    padding: 8px 12px;
+    padding: 5px 15px;
     position: relative;
+    transition: .7s ease;
+    cursor: pointer;
+}
+
+.nav-links ul li:hover {
+    background-color: #31449987;
 }
 
 .nav-links ul li a {
     color: #4864e1;
     text-decoration: none;
-    font: 10px;
+    font: 12px;
     font-weight: bold;
+    transition: .7 ease;
 }
+
+.nav-links ul li a:hover {
+    color: #ededed;
+}
+
 
 .link::after {
     content: '';
     width: 100%;
     height: 3px;
-    background-color: #4864e1;
+    background-color: #ededed;
     border-radius: 5px;
     position: absolute;
     left: 0;
     bottom: 0;
     transform: scaleX(0);
-    transform-origin: right;
+    transform-origin: center;
     transition: transform .7s ease;
 }
 
+
 .link:hover::after {
+    transform: scaleX(1);
+}
+
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    left: 0%;
+    top: 100%;
+    background-color: #ededed;
+    
+}
+
+.nav-links ul li:hover .dropdown-menu {
+    display: block;
+}    
+
+
+.dropdown-menu ul {
+    display: block;
+    margin: 5px;
+}
+
+.dropdown-menu ul li {
+    width: 150px;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.dropdown-menu li::after {
+    content: '';
+    width: 100%;
+    height: 3px;
+    background-color: #ededed;
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform .7s ease;
+}
+
+.dropdown-menu li:hover::after {
     transform: scaleX(1);
 }
 
@@ -76,6 +190,7 @@ nav img {
     text-align: center;
     text-transform: uppercase;
     color: #ededed;
+    z-index: 1000;
 }
 
 
@@ -130,20 +245,77 @@ h3 {
 }
 
 
-.admin-create {
-    font-size: 20px;
-    font-weight: bold;
-    color: #fff;
+
+
+/* BUTTON */
+
+.olahraga-btn {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ededed;
+    background-color: #4864e1;
     border: none;
     border-radius: 50px;
-    padding: 5px 25px;
-    width: 400px;
-    margin-bottom: 20px;
-    background-color: #4864e1;
-    position: relative;
-    margin: auto;
-    cursor: pointer;
+    margin-top: 10px;
+    padding: 0 20px;
+    box-shadow: 0 0 12px #4864e1;
+    transition: 0.5s;
 }
+
+
+.olahraga-btn:hover {
+    background-color: #e1e1e1;
+    color: #4864e1;
+}
+
+
+.edit-btn {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ededed;
+    background-color: #8848e1;
+    border: none;
+    border-radius: 50px;
+    margin-top: 20px;
+    padding: 0 20px;
+    box-shadow: 0 0 12px #8848e1;
+    transition: 0.5s;
+}
+
+
+.edit-btn:hover {
+    background-color: #e1e1e1;
+    color: #8848e1;
+}
+
+
+.delete-btn {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ededed;
+    background-color: #e14848;
+    border: none;
+    border-radius: 50px;
+    margin-top: 20px;
+    padding: 0 20px;
+    box-shadow: 0 0 12px #e14848;
+    transition: 0.5s;
+}
+
+
+.delete-btn:hover {
+    background-color: #e1e1e1;
+    color: #e14848;
+}
+
+
+
 /* ========== INSTRUKTUR =========== */
 
 .instruktur {

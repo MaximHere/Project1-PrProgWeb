@@ -8,6 +8,12 @@ if (isset($_POST["login"])) {
     header("Location: home.php");
 }
 
+
+if (isset($_POST["signup"])) {
+    header("Location: signup.php");
+}
+
+
 // Select Data
 $sql = "SELECT * FROM olahraga;";
 $result = mysqli_query($konek, $sql);
@@ -30,30 +36,45 @@ $result = mysqli_query($konek, $sql);
 </head>
 
 <body>
-    <section class="header">
+<section class="header">
         <nav>
             <a href="home.php"><img src="asset/logo.png" alt="logo"></a>
-
-            <div class="search">
-                <form action="cari.php" method="post">
-                    <input class="search-box" type="text" placeholder="Search Here" name="cari">
-                    <button class="search-btn"><i class='fa fa-search'></i></button></form>
-                    <?php
-                    echo "<form action='home.php' method='post'>";
-                    if (isset($_SESSION['username'])) {
-                        echo "<button class='user-btn' name='logout'>Logout</button>";
-                    } else {
-                        echo "<button class='user-btn' name='login'>Login</button>";
-                    }
-                    echo "</form>";
-                    ?>
+            <div class="nav-right">
+                <form action="home.php" method="post">
+                    <div class="user-btn">
+                        <button class="crud-btn" name="admin">Admin</button>
+                        <?php
+                        if (isset($_SESSION['username'])) {
+                            echo "<button class='login-btn' name='logout'>Logout</button>";
+                        } else {
+                            echo "<button class='login-btn' name='login'>Login</button>";
+                        }
+                        ?>
+                        <?php
+                        if (isset($_SESSION['username'])) {
+                            echo " ";
+                        } else {
+                            echo "<button class='sign-btn' name='signup'>Sign Up</button>";
+                        }
+                        ?>
+                    </div>
+                </form>
             </div>
         </nav>
-
         <div class="nav-links">
             <ul>
                 <li><a href="home.php" class="link">HOME</a></li>
                 <li><a href="#instruktur" class="link">INSTRUKTUR</a></li>
+                <li>
+                    <a href="#difficulty" class="link">TINGKAT KESULITAN</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="diff/beginner.php">Beginner</a></li>
+                            <li><a href="diff/intermediete.php">Intermediete</a></li>
+                            <li><a href="diff/advanced.php">Advanced</a></li>
+                        </ul>
+                    </div>
+                </li>
                 <li><a href="#olahraga" class="link">OLAHRAGA</a></li>
             </ul>
         </div>
@@ -65,95 +86,99 @@ $result = mysqli_query($konek, $sql);
         ?>
     </section>
 
-
+    
 
     <div class="web-title">
-        <h1>Welcome to FULL SEHAT</h1>
-        <p>"Ini adalah sebuah website Olahragawan sejati <br> bagi kalian kaum rebahan, jangan akses website ini :)"</p>
-        <a href="" class="pilih-btn">PILIH OLAHARGA</a>
+        <h1>Welcome to<br>
+        FULL SEHAT</h1>
+        <p>Ini adalah sebuah website Olahragawan sejati <br> bagi kalian kaum rebahan, jangan akses website ini ya gais !</p>
+        <a href="signup.php" class="free-btn">start for free</a>
+        <p>Sudah punya akun ? <a href="login.php" class="login"> Login</a></p>
+        <hr class="hr-header1">
+        <hr class="hr-header2">
     </div>
 
-    <!-- OLAHRAGA -->
-    <section class="difficulty" id="difficulty">
-        <h1>DIFFICULTY</h1>
-        <hr class="hr-difficulty">
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur, <br>
-            hic ipsum quidem veritatis quos beatae dolorem sequi ratione impedit laudantium porro, <br>
-            ab asperiores sunt deleniti! Ea nostrum labore expedita nisi!</p>
+    <div class="search">
+        <h1>Cari olahraga kesukaanmu <br> di database kami.</h1>
+            <hr class="hr-search">
+            <p>Pelajari tentang jumlah kalori, tingkat kesulitan, instruktur, dan tipe olahraga <br>
+            sesuai kebutuhan anda.</p>
+            <form action="home.php" method="post">
+                <input class="search-box" type="text" placeholder="Search Here">
+            </form>
+    </div>
 
+
+    <!-- OLAHRAGA -->
+    <section id="olahraga" class="olahraga">
+        <h1>pilihan olahraga</h1>
+        <hr class="hr-olahraga">
+        <p>Silahkan pilih yang sesuai dengan kemampuan Anda!</p>
+
+        <div class="olahraga-row">
+            <div class="olahraga-col">
+                <img src="asset/foto_/lari-portrait.png" alt="lari">
+                <a class="olahraga-btn" href="lari.php">LARI</a>
+            </div>
+
+            <div class="olahraga-col">
+                <img src="asset/foto_/pushup-portrait.png" alt="pushup">
+                <a class="olahraga-btn" href="pushup.php">PUSH UP</a>
+            </div>
+
+            <div class="olahraga-col">
+                <img src="asset/foto_/situp-portrait.png" alt="situp">
+                <a class="olahraga-btn" href="situp.php">SIT UP</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- DIFFICULTY -->
+    <section class="difficulty">
+        <h1>tingkat kesulitan</h1>
+        <hr class="hr-difficulty">
+        <p>Selamat datang, silahkan pilih tingkat kesulitan yang sesuai
+            dengan kemampuan anda <br> agar tercapai tubuh ideal yang anda inginkan</p>
+
+        <div class="difficulty-container">
         <div class="diff-row">
             <div class="diff-col">
                 <h3>Beginner</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur, <br>
-                    hic ipsum quidem veritatis quos beatae dolorem sequi ratione impedit laudantium porro, <br>
-                    ab asperiores sunt deleniti! Ea nostrum labore expedita nisi!</p>
+                <p>Jika Anda belum pernah berolahraga, mungkin level ini cocok dengan Anda</p>
                 <br>
-                <a class="diff-btn" href="difficulty/beginner.php">CLICK HERE</a>
+                <a class="diff-btn" href="diff/beginner.php">CLICK HERE</a>
                 <br>
             </div>
 
             <div class="diff-col">
                 <h3>Intermediete</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur, <br>
-                    hic ipsum quidem veritatis quos beatae dolorem sequi ratione impedit laudantium porro, <br>
-                    ab asperiores sunt deleniti! Ea nostrum labore expedita nisi!</p>
+                <p>Anda cukup sering untuk berolahraga 2 sampai 3 hari dalam satu minggu</p>
                 <br>
-                <a class="diff-btn" href="difficulty/intermediete.php">CLICK HERE</a>
+                <a class="diff-btn" href="diff/intermediete.php">CLICK HERE</a>
                 <br>
             </div>
 
             <div class="diff-col">
                 <h3>Advanced</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur, <br>
-                    hic ipsum quidem veritatis quos beatae dolorem sequi ratione impedit laudantium porro, <br>
-                    ab asperiores sunt deleniti! Ea nostrum labore expedita nisi!</p>
+                <p>Sudah menjadi rutinitas harian berolahraga lebih dari 4 hari dalam satu minggu</p>
                 <br>
-                <a class="diff-btn" href="difficulty/advance.php">CLICK HERE</a>
+                <a class="diff-btn" href="diff/advanced.php">CLICK HERE</a>
                 <br>
             </div>
+        </div>
         </div>
     </section>
 
 
-    <!-- OLAHRAGA -->
 
-    <section id="olahraga" class="olahraga">
-        <h1>PILIHAN OLAHRAGA</h1>
-        <hr class="hr-olahraga">
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur, <br>
-            hic ipsum quidem veritatis quos beatae dolorem sequi ratione impedit laudantium porro, <br>
-            ab asperiores sunt deleniti! Ea nostrum labore expedita nisi!</p>
-
-        <div class="olahraga-row">
-            <div class="olahraga-col">
-                <img src="asset/foto_/lari-portrait.png" alt="lari">
-                <a class="olahraga-btn" href="lari.php">DETAILS</a>
-            </div>
-
-            <div class="olahraga-col">
-                <img src="asset/foto_/pushup-portrait.png" alt="pushup">
-                <a class="olahraga-btn" href="pushup.php">DETAILS</a>
-            </div>
-
-            <div class="olahraga-col">
-                <img src="asset/foto_/situp-portrait.png" alt="situp">
-                <a class="olahraga-btn" href="situp.php">DETAILS</a>
-            </div>
-
-            <div class="olahraga-col">
-                <img src="asset/foto_/situp-portrait.png" alt="situp">
-                <a class="olahraga-btn" href="situp.php">DETAILS</a>
-            </div>
-        </div>
-    </section>
-
+    <!-- INSTRUKTUR -->
     <section id="instruktur" class="instruktur">
         <div class="instruktur-title">
-            <h1>DAFTAR INSTRUKTUR</h1>
+            <h1>daftar instruktur</h1>
             <hr class="hr-instruktur">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur, <br>
-                hic ipsum quidem veritatis quos beatae dolorem sequi ratione impedit laudantium porro, <br>
-                ab asperiores sunt deleniti! Ea nostrum labore expedita nisi!</p>
+            <p>Kami juga menyediakan instruktur agar anda tidak terkena cedera
+                <br>Berikut merupakan instruktur terbaik kami.</p>
         </div>
 
         <div class="instruktur-row">
@@ -181,6 +206,11 @@ $result = mysqli_query($konek, $sql);
                 </div>
             </div>
         </div>
+    </section>
+
+    
+    <section class="footer">
+        <h5>Copyright &copy; Fandy Abet Maxim</h5>
     </section>
 </body>
 

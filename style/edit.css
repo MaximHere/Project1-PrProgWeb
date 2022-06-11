@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: #f7f7f7;
+    background-image: url(../asset/BG/line/bg-white.png);
+    background-size: cover;
+}
+
+.header {
+    width: 100%;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+nav {
+    display: flex;
+    padding: 10px 50px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffffab;
+}
+
+nav img {
+    width: 350px;
+}
+
+.nav-right h1 {
+    color: #4864e1;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.title hr {
+    width: 5%;
+    height: 5px;
+    border: none;
+    border-radius: 50px;
+    background-color: #4864e1;
+    margin: auto;
+
+}
+
+.tambah-container {
+    position: relative;
+    margin: auto;
+    width: 45%;
+}
+
+.hr-detail {
+    width: 23.5%;
+    height: 5px;
+    border: none;
+    border-radius: 50px;
+    background-color: #4864e1;
+}
+
+.hr-artikel {
+    width: 10%;
+    height: 5px;
+    border: none;
+    border-radius: 50px;
+    background-color: #4864e1;
+}
+
+label {
+    color: #242329;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+input {
+    font-size: 14px;
+    padding: 6px;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 5px;
+    outline: 1px #242329 solid;
+    margin-bottom: 20px;
+
+}
+
+.custom-select {
+    margin-bottom: 20px;
+}
+
+
+.custom-select select {
+    width: 200px;
+    height: 30px;
+    border: 1px #242329 solid;
+    font-size: 14px;
+}
+
+.tambah-content textarea {
+    resize: vertical;
+    border: none;
+    border-radius: 5px;
+    outline: 1px #242329 solid;
+    display: block;
+    padding: 10px;
+    width: 98%;
+    overflow: hidden;
+    min-height: 100px;
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+
+
+.submit {
+    position: relative;
+    background-color: #4864e1;
+    padding: 10px 40px;
+    color: #ededed;
+    border-radius: 50px;
+    margin-bottom: 50px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: 1s;
+}
+
+.submit:hover {
+    background-color: #fff;
+    color: #4864e1;
+    box-shadow: 0 0 20px #4864e1;
+}
+
+
+
+/* footer */
+.footer {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    background-color: #ffffffab;
+}
+
+.footer h5 {
+    color: #4864e1;
+    padding-right: 40px;
+    padding: 20px 20px;
+    font-size: 12pt;
+    text-align: right;
+}
+

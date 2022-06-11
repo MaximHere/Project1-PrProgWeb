@@ -14,22 +14,50 @@
 </head>
 
 <body>
-    <section class="header">
+<section class="header">
         <nav>
             <a href="home.php"><img src="asset/logo-blue.png" alt="logo"></a>
-
-            <div class="search">
+            <div class="nav-right">
                 <form action="home.php" method="post">
-                    <div class="nav-links">
+                    <div class="user-btn">
+                        <?php
+                        if (isset($_SESSION['username'])) {
+                            echo "<button class='login-btn' name='logout'>Logout</button>";
+                        } else {
+                            echo "<button class='login-btn' name='login'>Login</button>";
+                        }
+                        ?>
+                        <?php
+                        if (isset($_SESSION['username'])) {
+                            echo " ";
+                        } else {
+                            echo "<button class='sign-btn' name='signup'>Sign Up</button>";
+                        }
+                        ?>
+                    </div>
+                </form>
+            </div>
+        </nav>
+        <div class="nav-links">
+            <ul>
+                <li><a href="home.php" class="link">HOME</a></li>
+                <li><a href="#instruktur" class="link">INSTRUKTUR</a></li>
+                <li>
+                    <a href="#difficulty" class="link">TINGKAT KESULITAN</a>
+                    <div class="dropdown-menu">
                         <ul>
-                            <li><a href="home.php" class="link">HOME</a></li>
-                            <li><a href="" class="link">INSTRUCTOR</a></li>
-                            <li><a href="" class="link">WORKOUT TYPE</a></li>
+                            <li><a href="diff/beginner.php">Beginner</a></li>
+                            <li><a href="diff/intermediete.php">Intermediete</a></li>
+                            <li><a href="diff/advanced.php">Advanced</a></li>
                         </ul>
                     </div>
-        </nav>
-    </section>
+                </li>
+                <li><a href="#olahraga" class="link">OLAHRAGA</a></li>
+            </ul>
+        </div>
+        <br>
 
+    </section>
     <section class="head-container">
         <div class="title-head">
             <h1>PUSH UP</h1>

@@ -92,7 +92,6 @@ nav img {
     padding: 5px 15px;
     position: relative;
     transition: .7s ease;
-    cursor: pointer;
 }
 
 .nav-links ul li:hover {
@@ -192,208 +191,105 @@ nav img {
     z-index: 1000;
 }
 
+/* TITLE */
 
-/* ====================== TITLE + VIDEO ===================== */
-
-
-.head-container {
-    width: 70%;
-    margin: auto;
+.title {
     text-align: center;
-}
-
-.title-head {
-    margin-bottom: 50px;
-}
-
-.title-head h1 {
-    font-size: 56px;
-    font-weight: 800;
-    color: #4864e1;
-    text-shadow: 0 0 12px #6a85ff;
-}
-
-.title-head p {
-    width: 90%;
-    margin: auto;
-    border: none;
-    border-radius: 20px;
-    background: #e1e1e180;
-    padding: 20px;
-    transition: 0.5s;
-}
-
-.title-head p:hover {
-    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
-}
-
-.video-details {
-    margin: auto;
-    border-collapse: collapse;
-    text-align: center;
-    border-radius: 20px;
-    background: #6d83ff9b;
-}
-
-.video-details th {
-    text-align: center;
-    width: 70%;
-    height: 600px;
-    border: none;
-    border-collapse: collapse;
-}
-
-.video iframe {
-    width: 90%;
-    height: 500px;
-}
-
-
-.details h2 {
-    font-size: 40px;
-    color: #fff;
-    padding-right: 40px;
-    text-shadow: 0 0 10px #fff;
-}
-
-.detail-list {
-    font-size: 12pt;
-    margin: auto;
-    color: #fff;
-    font-weight: 300;
-    text-align: left;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    margin-right: 20px;
-}
-
-.details .detail-list strong {
-    font-weight: 700;
-}
-
-.detail-list a {
-    text-decoration: underline;
-    color: #4864e1;
-}
-
-
-
-
-/* =============== ARTICLE ================= */
-
-.article-container {
-    width: 80%;
-    margin: auto;
-    text-align: justify;
-    padding-top: 50px;
-}
-
-.article-content {
     margin-bottom: 20px;
 }
 
-.article-content h1 {
-    text-align: center;
-}
-
-.list {
-    display: inline-block;
-    padding-left: 20px;
-    padding-top: 10px;
-    position: relative;
-}
-
-
-.line-article {
-    width: 10%;
+.title hr {
+    width: 5%;
     height: 5px;
     border: none;
-    border-radius: 5px;
+    border-radius: 50px;
     background-color: #4864e1;
     margin: auto;
-    margin-bottom: 20px;
+
 }
 
+/* TABLE */
 
-/* ========== KOLOM KOMENTAR =========== */
-
-.col-komentar {
-    width: 60%;
+table {
+    width: 70%;
+    padding-top: 30px;
+    border-collapse: collapse;
     margin: auto;
-    margin-bottom: 30px;
-    margin-top: 20px;
 }
 
-.komentar-content .komentar-title {
-    width: 50%;
+table thead {
+    background-color: #ebeef1;
+    border-bottom: 1px solid #d3dae0;
 }
 
-.komentar-content h3 {
-    font-size: 18pt;
-    margin-bottom: 10px;
-}
-
-.comment {
-    width: 100%;
-    height: 100px;
+table thead td {
     padding: 10px;
-    color: #242424;
-    margin-bottom: 10px;
-}
-
-.comment::placeholder {
-    font-style: italic;
-    color: #555555;
-}
-
-.submit-comment {
+    font-weight: bold;
+    color: #767779;
     font-size: 14px;
-    font-weight: bold;
-    color: #fff;
-    width: 100px;
-    border: none;
-    border-radius: 50px;
-    padding: 5px 5px;
-    background-color: #4864e1;
-    transition: 1s;
 }
 
-
-.submit-comment:hover {
-    background-color: #fff;
-    color: #4864e1;
-    box-shadow: 0 0 12px #4864e1;
+table tbody tr {
+    border-bottom: 1px solid #d3dae0;
 }
 
-
-.edit {
-    margin: 20px auto;
-    width: 400px;
-
+table tbody tr:nth-child(even) {
+    background-color: #fbfcfc;
 }
 
-.admin-submit {
-    font-size: 20px;
-    font-weight: bold;
-    color: #fff;
-    border: none;
-    border-radius: 50px;
-    padding: 5px 25px;
-    width: 400px;
-    margin-bottom: 20px;
-    background-color: #4864e1;
-    position: relative;
-    margin: auto;
-    cursor: pointer;
+table tbody tr:hover {
+    background-color: #376ab7;
 }
 
+ table tbody tr:hover td {
+    color: #FFFFFF;
+}
 
+ table tbody tr:hover td:nth-child(1) {
+    color: #FFFFFF;
+}
 
-/* ========== FOOTER =========== */
+ table tbody tr td {
+    padding: 10px;
+}
+
+ table tbody tr td:nth-child(1) {
+    color: #a5a7a9;
+}
+
+ table tbody tr td.actions {
+    padding: 8px;
+    text-align: right;
+}
+
+ table tbody tr td.actions .edit,  table tbody tr td.actions .trash {
+    display: inline-flex;
+    text-align: right;
+    text-decoration: none;
+    color: #FFFFFF;
+    padding: 10px 12px;
+}
+
+ table tbody tr td.actions .trash {
+    background-color: #b73737;
+}
+
+ table tbody tr td.actions .trash:hover {
+    background-color: #a33131;
+}
+ table tbody tr td.actions .edit {
+    background-color: #37afb7;
+}
+
+ table tbody tr td.actions .edit:hover {
+    background-color: #319ca3;
+}
+
+/* footer */
 .footer {
     position: absolute;
     width: 100%;
-    height: 80px;
+    height: 100px;
     background-color: #ffffffab;
 }
 
