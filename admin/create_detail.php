@@ -1,12 +1,7 @@
 <?php
 require '../fungsi.php';
 
-if ($_GET) {
-    $id = $_GET["id"];
-    $sql_q = "SELECT * FROM olahraga WHERE idOlahraga = '" . $id . "' ;";
-    $querry = mysqli_query($konek, $sql_q);
-    $data = mysqli_fetch_assoc($querry);
-} else if ($_POST) {
+if ($_POST) {
     $id = $_POST["idOlahraga"];
     $namaOlahraga = $_POST["namaOlahraga"];
     $instruktor = $_POST["instruktor"];

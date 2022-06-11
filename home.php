@@ -1,6 +1,8 @@
 <?php
 require 'fungsi.php';
 
+
+
 if (isset($_POST["login"])) {
     header("Location: login.php");
 } elseif (isset($_POST["logout"])) {
@@ -11,6 +13,10 @@ if (isset($_POST["login"])) {
 
 if (isset($_POST["signup"])) {
     header("Location: signup.php");
+}
+
+if (isset($_POST["admin"])) {
+    header("Location: admin/db.php");
 }
 
 
@@ -40,9 +46,10 @@ $result = mysqli_query($konek, $sql);
         <nav>
             <a href="home.php"><img src="asset/logo.png" alt="logo"></a>
             <div class="nav-right">
+            
                 <form action="home.php" method="post">
                     <div class="user-btn">
-                        <button class="crud-btn" name="admin">Admin</button>
+                        <button class="crud-btn" name="admin" onclick="location.href='admin/db.php'">Admin</button>
                         <?php
                         if (isset($_SESSION['username'])) {
                             echo "<button class='login-btn' name='logout'>Logout</button>";
@@ -103,39 +110,66 @@ $result = mysqli_query($konek, $sql);
             <hr class="hr-search">
             <p>Pelajari tentang jumlah kalori, tingkat kesulitan, instruktur, dan tipe olahraga <br>
             sesuai kebutuhan anda.</p>
-            <form action="home.php" method="post">
+            <form action="admin/db.php" method="post">
                 <input class="search-box" type="text" placeholder="Search Here">
             </form>
     </div>
 
+    <!-- INSTRUKTUR -->
+    <section id="instruktur" class="instruktur">
+        <br>
+        <br>
+        <div class="instruktur-title">
+            <h1>daftar instruktur</h1>
+            <hr class="hr-instruktur">
+            <p>Kami juga menyediakan instruktur agar anda tidak terkena cedera
+                <br>Berikut merupakan instruktur terbaik kami.</p>
+        </div>
 
-    <!-- OLAHRAGA -->
-    <section id="olahraga" class="olahraga">
-        <h1>pilihan olahraga</h1>
-        <hr class="hr-olahraga">
-        <p>Silahkan pilih yang sesuai dengan kemampuan Anda!</p>
-
-        <div class="olahraga-row">
-            <div class="olahraga-col">
-                <img src="asset/foto_/lari-portrait.png" alt="lari">
-                <a class="olahraga-btn" href="lari.php">LARI</a>
+        <div class="instruktur-row">
+            <div class="instruktur-col">
+                <h3>Mbak Sri</h3>
+                <img src="asset/instructor.png" alt="instructor">
+                <div class="instruktur-btn">
+                    <a href="">DETAILS</a>
+                </div>
             </div>
 
-            <div class="olahraga-col">
-                <img src="asset/foto_/pushup-portrait.png" alt="pushup">
-                <a class="olahraga-btn" href="pushup.php">PUSH UP</a>
+            <div class="instruktur-col">
+                <h3>Mbak Ayu</h3>
+                <img src="asset/instructor.png" alt="instructor">
+                <div class="instruktur-btn">
+                    <a href="">DETAILS</a>
+                </div>
             </div>
 
-            <div class="olahraga-col">
-                <img src="asset/foto_/situp-portrait.png" alt="situp">
-                <a class="olahraga-btn" href="situp.php">SIT UP</a>
+            <div class="instruktur-col">
+                <h3>Mbak Siti</h3>
+                <img src="asset/instructor.png" alt="instructor">
+                <div class="instruktur-btn">
+                    <a href="">DETAILS</a>
+                </div>
+            </div>
+            <div class="instruktur-col">
+                <h3>Mbak Siti</h3>
+                <img src="asset/instructor.png" alt="instructor">
+                <div class="instruktur-btn">
+                    <a href="">DETAILS</a>
+                </div>
+            </div>
+            <div class="instruktur-col">
+                <h3>Mbak Siti</h3>
+                <img src="asset/instructor.png" alt="instructor">
+                <div class="instruktur-btn">
+                    <a href="">DETAILS</a>
+                </div>
             </div>
         </div>
     </section>
-
+    
 
     <!-- DIFFICULTY -->
-    <section class="difficulty">
+    <section class="difficulty" id="difficulty">
         <h1>tingkat kesulitan</h1>
         <hr class="hr-difficulty">
         <p>Selamat datang, silahkan pilih tingkat kesulitan yang sesuai
@@ -170,43 +204,36 @@ $result = mysqli_query($konek, $sql);
         </div>
     </section>
 
+    <!-- OLAHRAGA -->
+    <section id="olahraga" class="olahraga">
+        <h1>pilihan olahraga</h1>
+        <hr class="hr-olahraga">
+        <p>Silahkan pilih yang sesuai dengan kemampuan Anda!</p>
 
-
-    <!-- INSTRUKTUR -->
-    <section id="instruktur" class="instruktur">
-        <div class="instruktur-title">
-            <h1>daftar instruktur</h1>
-            <hr class="hr-instruktur">
-            <p>Kami juga menyediakan instruktur agar anda tidak terkena cedera
-                <br>Berikut merupakan instruktur terbaik kami.</p>
-        </div>
-
-        <div class="instruktur-row">
-            <div class="instruktur-col">
-                <h3>Mbak Sri</h3>
-                <img src="asset/instructor.png" alt="instructor">
-                <div class="instruktur-btn">
-                    <a href="">DETAILS</a>
-                </div>
+        <div class="olahraga-row">
+            <div class="olahraga-col">
+                <img src="asset/foto_/lari-portrait.png" alt="lari">
+                <a class="olahraga-btn" href="lari.php">LARI</a>
             </div>
 
-            <div class="instruktur-col">
-                <h3>Mbak Ayu</h3>
-                <img src="asset/instructor.png" alt="instructor">
-                <div class="instruktur-btn">
-                    <a href="">DETAILS</a>
-                </div>
+            <div class="olahraga-col">
+                <img src="asset/foto_/pushup-portrait.png" alt="pushup">
+                <a class="olahraga-btn" href="pushup.php">PUSH UP</a>
             </div>
 
-            <div class="instruktur-col">
-                <h3>Mbak Siti</h3>
-                <img src="asset/instructor.png" alt="instructor">
-                <div class="instruktur-btn">
-                    <a href="">DETAILS</a>
-                </div>
+            <div class="olahraga-col">
+                <img src="asset/foto_/situp-portrait.png" alt="situp">
+                <a class="olahraga-btn" href="situp.php">SIT UP</a>
             </div>
         </div>
     </section>
+
+
+    
+
+
+
+    
 
     
     <section class="footer">
