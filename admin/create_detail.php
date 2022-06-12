@@ -2,7 +2,6 @@
 require '../fungsi.php';
 
 if ($_POST) {
-    $id = $_POST["idOlahraga"];
     $namaOlahraga = $_POST["namaOlahraga"];
     $instruktor = $_POST["instruktor"];
     $durasi = $_POST["durasi"];
@@ -16,15 +15,50 @@ if ($_POST) {
     $manfaat = $_POST["manfaat"];
     $cara = $_POST["cara"];
 
-    $sql = "UPDATE olahraga SET namaOlahraga='" . $namaOlahraga . "', instruktor='" . $instruktor . "', durasi='" . $durasi . "', caloriBurn='" . $caloriBurn . "', kesulitan='" . $kesulitan . "', equipment='" . $equipment . "'
-	, youtube='" . $youtube . "', embedYoutube='" . $embedYoutube . "', definisi='" . $definisi . "', manfaat='" . $manfaat . "', cara='" . $cara . "' WHERE idOlahraga= '" . $id . "' ";
+    $isValid = true;
+    $targetFolder = "asset/foto_/";
 
-    if (mysqli_query($konek, $sql)) {
-        echo "<script>alert('Berhasil mengubah data')</script>";
-    } else {
-        echo "<script>alert('Gagal mengubah data')</script>";
+    if($_FILES['fileGambar']['type'] == "image/png"){
+        $ext = ".png";
     }
-    header("Location: detail_page.php?id=" . $id);
+    else if($_FILES['fileGambar']['type'] == "image/jpeg"){
+        $ext = ".jpeg";
+    }
+    else{
+        $isValid = false;
+    }
+
+    
+
+    var_dump($_FILES);
+
+    if ($isValid){
+        $path = $targetFolder.$namaOlahraga.$ext;
+        var_dump($path);
+        if(move_uploaded_file($_FILES['fileGambar']['tmp_name'], "../".$path)){
+            $sql = "INSERT INTO olahraga VALUES ('', '" . $namaOlahraga . "', '".$instruktor."', '" . $durasi . "', '" . $caloriBurn . "', '" . $kesulitan . "', '" . $equipment . "', '" . $youtube . "', '" . $embedYoutube . "', '" . $definisi . "', '" . $manfaat . "', '" . $cara . "', '" . $path . "'); ";
+            
+            
+            $sql2 = "INSERT INTO olahraga (`idOlahraga`, `namaOlahraga`, `idInstruktor`, `durasi`, `caloriBurn`, `kesulitan`, `equipment`, `youtube`, `embedYoutube`, `definisi`, `manfaat`, `cara`, `gambar`) VALUES (NULL, '" . $namaOlahraga . "', '".$instruktor."', '" . $durasi . "', '" . $caloriBurn . "', '" . $kesulitan . "', '" . $equipment . "', '" . $youtube . "', '" . $embedYoutube . "', '" . $definisi . "', '" . $manfaat . "', '" . $cara . "', '" . $path . "'); ";
+
+            if(execute_querry($sql)){
+                header("Location: db.php");
+            }
+            else{
+                echo "<script>alert('Data gagal ditambah!')</script>";
+            }
+        }
+    }
+    else{
+        echo "<script>alert('Data gagal ditambah!, File tidak Valid!')</script>";
+    }
+
+    // if (mysqli_query($konek, $sql)) {
+    //     echo "<script>alert('Berhasil mengubah data')</script>";
+    // } else {
+    //     echo "<script>alert('Gagal mengubah data')</script>";
+    // }
+
     // $sql_q = "SELECT * FROM olahraga WHERE idOlahraga = ".$id."' ;";
     // $querry=mysqli_query($konek,$sql_q);
     // $data=mysqli_fetch_assoc($querry);
@@ -65,8 +99,8 @@ if ($_POST) {
 
     <section class="tambah-container">
 
-        <form action="create_detail.php" method="post">
-            <input type="hidden" name="idOlahraga" value="<?= $id; ?>">
+        <form action="create_detail.php" method="post" enctype="multipart/form-data">
+ 
 
 
             <div class="tambah-content">
@@ -76,7 +110,7 @@ if ($_POST) {
 
             <div class="tambah-content">
                 <label>Gambar</label>
-                <input type="file" name="fileGambar">
+                <input type="file" name="fileGambar" id="fileGambar">
             </div>
 
             <div class="tambah-content">
@@ -98,10 +132,14 @@ if ($_POST) {
             <div class="tambah-content">
                 <label>Instruktur</label>
                 <div class="custom-select">
-                    <select name="kesulitan" id="">
-                        <option value="Mbak Ayu">Mbak Ayu</option>
-                        <option value="Mbak Sri">Mbak Sri</option>
-                        <option value="Mbak Siti">Mbak Siti</option>
+                    <select name="instruktor" id="instruktor">
+                        <option value="">Pilih Instruktor</option>
+                        <?php
+                        $data = execute_querry("SELECT * FROM instruktor");
+                        while ($row = mysqli_fetch_assoc($data)){
+                            echo "<option value='".$row['idInstruktor']."'>".$row['namaInstruktor']."</option>";
+                        }
+                        ?>
                     </select>
                 </div>
 
@@ -120,7 +158,8 @@ if ($_POST) {
             <div class="tambah-content">
                 <label>Tingkat Kesulitan</label>
                 <div class="custom-select">
-                    <select name="kesulitan" id="">
+                    <select name="kesulitan" id="kesulitan">
+                        <option value="">Pilih Kesulitan</option>
                         <option value="Beginner">Beginner</option>
                         <option value="Intermediete">Intermediete</option>
                         <option value="Hard">Hard</option>
@@ -148,7 +187,7 @@ if ($_POST) {
                 <br>
                 <div class="text">
                     <p class="text">
-                        <textarea name="manfaat" id="manfaat" cols="110" rows="5"></textarea>
+                        <textarea name="manfaat" id="manfaat" cols="110" rows="5" required></textarea>
                     </p>
                 </div>
             </div>
@@ -157,13 +196,13 @@ if ($_POST) {
                 <label>Cara melakukan</label>
                 <br>
                 <div class="text">
-                    <p><textarea name="cara" id="cara" cols="100%" rows="5"></textarea></p>
+                    <p><textarea name="cara" id="cara" cols="100%" rows="5" required></textarea></p>
                     <br>
                 </div>
             </div>
 
             <div>
-                <button type="submit" name="submit_edit" class="submit">Tambah Olahraga</button>
+                <button type="submit" name="submit_edit" class="submit" onclick="checkValid();">Tambah Olahraga</button>
             </div>
         </form>
     </section>
@@ -174,18 +213,6 @@ if ($_POST) {
     </section>
 
 </body>
-<script>
-    update_field();
-
-    function update_field() {
-        var namaOlahraga = document.getElementById("namaOlahraga");
-        var fieldJudul = document.getElementsByClassName("namaOlahraga");
-        for (let i = 0; i < fieldJudul.length; i++) {
-            fieldJudul[i].innerHTML = namaOlahraga.value;
-
-        }
-        // fieldJudul.innerHTML = namaOlahraga.value;
-    }
-</script>
+<script src="crud.js"></script>
 
 </html>

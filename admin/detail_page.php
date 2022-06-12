@@ -5,11 +5,11 @@ if (isset($_POST["login"])) {
     header("Location: login.php");
 } elseif (isset($_POST["logout"])) {
     session_destroy();
-    header("Location: detail_page.php");
+    header("Location: ../home.php");
 }
 
 $id = $_GET["id"];
-$sql_q = "SELECT * FROM olahraga WHERE idOlahraga = '" . $id . "' ;";
+$sql_q = "SELECT * FROM olahraga NATURAL JOIN instruktor WHERE idOlahraga = '" . $id . "' ;";
 $querry = mysqli_query($konek, $sql_q);
 $data = mysqli_fetch_assoc($querry);
 
@@ -37,20 +37,21 @@ $data = mysqli_fetch_assoc($querry);
             <a href="../home.php"><img src="../asset/logo-blue.png" alt="logo"></a>
 
             <div class="nav-right">
-                <form action="home.php" method="post">
+                <form action="../home.php" method="post">
                     <div class="nav-links">
                         <ul>
-                            <li><a href="home.php" class="link">HOME</a></li>
+                            <li><a href="../home.php" class="link">HOME</a></li>
                             <li><a href="#olahraga" class="link">OLAHRAGA</a></li>
                             <li><a href="#instruktur" class="link">INSTRUKTUR</a></li>
-                            <li>
+                            
                                 <?php
                                 if (isset($_SESSION['username'])) {
-                                    echo "<button class='user-btn' name='logout'>Logout</button>";
+                                    echo "<li><a href='db.php' class='link'>ADMIN</a></li>";
+                                    echo "<li><button class='user-btn' name='logout'>Logout</button></li>";
                                 } else {
-                                    echo "<button class='user-btn' name='login'>Login</button>";
+                                    echo "<button class='user-btn' name='login'>Login</button></li>";
                                 }
-                                ?></li>
+                                ?>
                         </ul>
                     </div>
                 </form>
@@ -79,7 +80,7 @@ $data = mysqli_fetch_assoc($querry);
                         <h2>Workout Details</h2>
                         <br>
                         <div class="detail-list">
-                            <p>Instructor : <strong><?= $data['instruktor']; ?></strong></p>
+                            <p>Instructor : <strong><?= $data['namaInstruktor']; ?></strong></p>
                             <p>Duration : <strong><?= $data['durasi']; ?></strong></p>
                             <p>Calorie Burn : <strong><?= $data['caloriBurn']; ?></strong></p>
                             <p>Difficulty : <strong><?= $data['kesulitan']; ?></strong></p>

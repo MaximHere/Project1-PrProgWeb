@@ -1,9 +1,23 @@
 <?php
 require '../fungsi.php';
 
+
+
+
 if(isset($_GET['id'])){
     $id = $_GET['id'];
+    $sql_q = "SELECT * FROM olahraga NATURAL JOIN instruktor WHERE idOlahraga = '".$id."' ;";
+    $querry=mysqli_query($konek,$sql_q);
+    $data=mysqli_fetch_assoc($querry);
+
+    $targetFolder = "asset/foto_/";
+
+    $regex = "/([(A-za-z)+0-9]*\s*)+\.[a-z]+/";
+    $fileLama = array();
+    preg_match($regex, $data['gambar'], $fileLama);
+
     if(execute_querry("DELETE FROM olahraga WHERE idOlahraga =".$id.";")){
+        unlink("../".$targetFolder.$fileLama[0]);
         echo "<script>alert('Data Berhasil dihapus')</script>";
         }else{
             echo "<script>alert('Data gagal dihapus')</script>";
@@ -21,7 +35,7 @@ if(isset($_GET['inst'])){
 
 
 // Select Data
-$sql = "SELECT * FROM olahraga;";
+$sql = "SELECT * FROM olahraga NATURAL JOIN instruktor;";
 $result = execute_querry($sql);
 
 $sqlinst = "SELECT * FROM instruktor;";
@@ -94,29 +108,27 @@ $hasil = execute_querry($sqlinst);
                 <td>Foto Olahraga</td>
                 <td>Actions</td>
             </thead>
+            <a href='detail_page.php?id='></a>
             <?php
             while ($row = mysqli_fetch_assoc($result)){
                 echo "<tbody class='table-row'>";
                 echo "<td>".$row['idOlahraga']."</td>";
-                echo "<td>".$row['namaOlahraga']."</td>";
-                echo "<td>coba</td>";
-                // echo "<td>".$row['instruktor']."</td>";
+                echo "<td><a href='detail_page.php?id=".$row['idOlahraga']."'>".$row['namaOlahraga']."</a></td>";
+                // echo "<td>coba</td>";
+                echo "<td>".$row['namaInstruktor']."</td>";
                 echo "<td>".$row['kesulitan']."</td>";
                 echo "<td><img src='".$row['gambar']."' alt=''></td>";
                 echo "<td><button class='act-btn' onclick='edit_olahraga(".$row['idOlahraga'].");'>Edit</button>";
                 echo " || ";
-                echo "<button onclick='delete_olahraga(".$row['idOlahraga'].");'>Delete</button></td>";
+                echo "<button class='act-btn' onclick='delete_olahraga(".$row['idOlahraga'].");'>Delete</button></td>";
             }
             ?>
             <tbody class="table-row">
                 <td><button onclick='edit();'>Edit</button></td>
-                <td>coba</td>
+                <td><a href="../home.php">ddfgdfg</a></td>
                 <td>coba</td>
                 <td>coba</td>
                 <td class="action-btn">
-                        <!-- see detail -->
-                        <!-- edit -->
-                        <!-- delete -->
                 </td>
             </tbody>
             
@@ -129,7 +141,7 @@ $hasil = execute_querry($sqlinst);
     <br>
 
     <div class="title">
-        <h1>Database Olahraga</h1>
+        <h1>Database Instruktor</h1>
         <hr>
     </div>
 
@@ -145,9 +157,9 @@ $hasil = execute_querry($sqlinst);
                 echo "<tbody class='table-row'>";
                 echo "<td>".$baris['idInstruktor']."</td>";
                 echo "<td>".$baris['namaInstruktor']."</td>";
-                echo "<td><button onclick='edit_instruktor(".$baris['idInstruktor'].");'>Edit</button>";
-                echo " || ";
-                echo "<button onclick='delete_instruktor(".$baris['idInstruktor'].");'>Delete</button></td>";
+                echo "<td><button class='act-btn' onclick='edit_instruktor(".$baris['idInstruktor'].");'>Edit</button>";
+                echo "|| ";
+                echo "<button class='act-btn' onclick='delete_instruktor(".$baris['idInstruktor'].");'> Delete</button></td>";
             }
             ?>
         

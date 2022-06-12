@@ -49,9 +49,9 @@ $result = mysqli_query($konek, $sql);
             
                 <form action="home.php" method="post">
                     <div class="user-btn">
-                        <button class="crud-btn" name="admin" onclick="location.href='admin/db.php'">Admin</button>
                         <?php
                         if (isset($_SESSION['username'])) {
+                            echo '<button class="crud-btn" name="admin" onclick="location.href="admin/db.php"">Admin</button>';
                             echo "<button class='login-btn' name='logout'>Logout</button>";
                         } else {
                             echo "<button class='login-btn' name='login'>Login</button>";
@@ -110,7 +110,7 @@ $result = mysqli_query($konek, $sql);
             <hr class="hr-search">
             <p>Pelajari tentang jumlah kalori, tingkat kesulitan, instruktur, dan tipe olahraga <br>
             sesuai kebutuhan anda.</p>
-            <form action="admin/db.php" method="post">
+            <form action="search.php" method="post">
                 <input class="search-box" type="text" placeholder="Search Here">
             </form>
     </div>
