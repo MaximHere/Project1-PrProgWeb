@@ -36,9 +36,9 @@ $result = mysqli_query($konek, $sql);
 <body>
 <section class="header">
         <nav>
-            <a href="../home.php"><img src="../asset/logo-blue.png" alt="logo"></a>
+            <a href="../index.php"><img src="../asset/logo-blue.png" alt="logo"></a>
             <div class="nav-right">
-                <form action="../home.php" method="post">
+                <form action="../index.php" method="post">
                     <div class="user-btn">
                         <?php
                         if (isset($_SESSION['username'])) {
@@ -61,7 +61,7 @@ $result = mysqli_query($konek, $sql);
 
         <div class="nav-links">
             <ul>
-                <li><a href="../home.php" class="link">HOME</a></li>
+                <li><a href="../index.php" class="link">HOME</a></li>
                 <li><a href="../instruktur.php" class="link">INSTRUKTUR</a></li>
                 <li>
                     <a class="link">TINGKAT KESULITAN</a>
@@ -93,13 +93,15 @@ $result = mysqli_query($konek, $sql);
         <br>
         <h3>Daftar Olahraga Beginner</h3>
 
-        <div class="diff-row">
-            <div class="diff-col">
+        
+            
                 <br>
                 <?php
                 while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<div class="diff-row">';
+                    echo '<div class="diff-col">';
                     echo '<div>';
-                    echo "<img src='" . $row['gambar'] . "' alt='" . $row['namaOlahraga'] . "'>";
+                    echo "<img src='../" . $row['gambar'] . "' alt='" . $row['namaOlahraga'] . "' style='width:90% ;'>";
                     echo '<br>';
                     echo "<a class='olahraga-btn' href='../admin/detail_page.php?id=" . $row['idOlahraga'] . "'>" . $row['namaOlahraga'] . "</a>";
                     echo "</div>";
@@ -110,13 +112,16 @@ $result = mysqli_query($konek, $sql);
                     }
                     echo "<br><br> 
                             </div>";
+                    echo '</div>';
+                    echo '</div>';
                 }
                 ?>
-            </div>
-        </div>
+            
+        
+        <img src="" alt="" style='width:30% ;'>
     </section>
 
-    <section class="instruktur">
+    <!-- <section class="instruktur">
         <div class="instruktur-title">
         <h1>DAFTAR INSTRUKTUR</h1>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur, <br>
@@ -149,7 +154,7 @@ $result = mysqli_query($konek, $sql);
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section class="footer">
         <h5>Copyright &copy; Fandy Abet Maxim</h5>

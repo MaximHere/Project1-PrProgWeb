@@ -1,4 +1,14 @@
+<?php
+require 'fungsi.php';
 
+if(isset($_POST['cari'])){
+    $cari = $_POST["cari"];
+    $sql = "SELECT * FROM olahraga NATURAL JOIN instruktor WHERE namaOlahraga = '".$cari."' OR namaInstruktor = '".$cari."'";
+    $result = execute_querry($sql);
+    
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,31 +27,18 @@
 <body>
 <section class="header">
         <nav>
-            <a href="home.php"><img src="asset/logo-blue.png" alt="logo"></a>
+            <a href="indexs.php"><img src="asset/logo-blue.png" alt="logo"></a>
             <div class="nav-right">
-                <form action="home.php" method="post">
+                <form action="indexs.php" method="post">
                     <div class="user-btn">
-                        <?php
-                        if (isset($_SESSION['username'])) {
-                            echo "<button class='login-btn' name='logout'>Logout</button>";
-                        } else {
-                            echo "<button class='login-btn' name='login'>Login</button>";
-                        }
-                        ?>
-                        <?php
-                        if (isset($_SESSION['username'])) {
-                            echo " ";
-                        } else {
-                            echo "<button class='sign-btn' name='signup'>Sign Up</button>";
-                        }
-                        ?>
+                       
                     </div>
                 </form>
             </div>
         </nav>
         <div class="nav-links">
             <ul>
-                <li><a href="home.php" class="link">HOME</a></li>
+                <li><a href="index.php" class="link">HOME</a></li>
                 <li><a href="instruktur.php" class="link">INSTRUKTUR</a></li>
                 <li>
                     <a class="link">TINGKAT KESULITAN</a>
@@ -68,7 +65,7 @@
     <div class="search">
         <h1>hasil pencarian</h1>
             <hr class="hr-search">
-            <form action="home.php" method="post">
+            <form action="search.php" method="post">
                 <input class="search-box" type="text" placeholder="Search Here">
             </form>
     </div>

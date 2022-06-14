@@ -5,7 +5,7 @@ if (isset($_POST["login"])) {
     header("Location: login.php");
 } elseif (isset($_POST["logout"])) {
     session_destroy();
-    header("Location: ../home.php");
+    header("Location: ../index.php");
 }
 
 $id = $_GET["id"];
@@ -34,13 +34,13 @@ $data = mysqli_fetch_assoc($querry);
 <body>
     <section class="header">
         <nav>
-            <a href="../home.php"><img src="../asset/logo-blue.png" alt="logo"></a>
+            <a href="../index.php"><img src="../asset/logo-blue.png" alt="logo"></a>
 
             <div class="nav-right">
-                <form action="../home.php" method="post">
+                <form action="../index.php" method="post">
                     <div class="nav-links">
                         <ul>
-                            <li><a href="../home.php" class="link">HOME</a></li>
+                            <li><a href="../index.php" class="link">HOME</a></li>
                             <li><a href="#olahraga" class="link">OLAHRAGA</a></li>
                             <li><a href="#instruktur" class="link">INSTRUKTUR</a></li>
                             

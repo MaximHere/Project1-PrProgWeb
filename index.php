@@ -7,7 +7,7 @@ if (isset($_POST["login"])) {
     header("Location: login.php");
 } elseif (isset($_POST["logout"])) {
     session_destroy();
-    header("Location: home.php");
+    header("Location: index.php");
 }
 
 
@@ -23,6 +23,8 @@ if (isset($_POST["admin"])) {
 // Select Data
 $sql = "SELECT * FROM olahraga;";
 $result = mysqli_query($konek, $sql);
+
+$sql_inst = "SELECT * FROM";
 ?>
 
 
@@ -47,18 +49,21 @@ $result = mysqli_query($konek, $sql);
             <a href="home.php"><img src="asset/logo.png" alt="logo"></a>
             <div class="nav-right">
             
-                <form action="home.php" method="post">
+                <form action="index.php" method="post">
                     <div class="user-btn">
                         <?php
                         if (isset($_SESSION['username'])) {
                             echo '<button class="crud-btn" name="admin" onclick="location.href="admin/db.php"">Admin</button>';
                             echo "<button class='login-btn' name='logout'>Logout</button>";
-                        } else {
+                        }else if(isset($_SESSION['guest'])) {
+                            echo "<button class='login-btn' name='logout'>Logout</button>";
+                        }
+                        else {
                             echo "<button class='login-btn' name='login'>Login</button>";
                         }
                         ?>
                         <?php
-                        if (isset($_SESSION['username'])) {
+                        if (isset($_SESSION['username']) or isset($_SESSION['guest'])) {
                             echo " ";
                         } else {
                             echo "<button class='sign-btn' name='signup'>Sign Up</button>";
@@ -89,6 +94,8 @@ $result = mysqli_query($konek, $sql);
         <?php
         if (isset($_SESSION['username'])) {
             echo "<h5 id='welcome-user'>Selamat datang, " . $_SESSION['username'] . "</h5><br>";
+        } else if (isset($_SESSION['guest'])){
+            echo "<h5 id='welcome-user'>Selamat datang, " . $_SESSION['guest'] . "</h5><br>";
         }
         ?>
     </section>
@@ -99,8 +106,16 @@ $result = mysqli_query($konek, $sql);
         <h1>Welcome to<br>
         FULL SEHAT</h1>
         <p>Ini adalah sebuah website Olahragawan sejati <br> bagi kalian kaum rebahan, jangan akses website ini ya gais !</p>
-        <a href="signup.php" class="free-btn">start for free</a>
-        <p>Sudah punya akun ? <a href="login.php" class="login"> Login</a></p>
+        <?php
+        if ((!isset($_SESSION['username'])) and (!isset($_SESSION['guest']))) {
+            echo "<a href='signup.php' class='free-btn'>start for free</a>";
+            echo "<p>Sudah punya akun ? <a href='login.php' class='login'> Login</a></p>";
+        } else {
+            echo " ";
+        }
+        ?>
+        
+        
         <hr class="hr-header1">
         <hr class="hr-header2">
     </div>
@@ -111,7 +126,7 @@ $result = mysqli_query($konek, $sql);
             <p>Pelajari tentang jumlah kalori, tingkat kesulitan, instruktur, dan tipe olahraga <br>
             sesuai kebutuhan anda.</p>
             <form action="search.php" method="post">
-                <input class="search-box" type="text" placeholder="Search Here">
+                <input class="search-box" type="text" placeholder="Search Here" name="cari">
             </form>
     </div>
 

@@ -60,7 +60,7 @@ $hasil = execute_querry($sqlinst);
 <body>
     <section class="header">
         <nav>
-            <a href="../home.php"><img src="../asset/logo-blue.png" alt="logo"></a>
+            <a href="../index.php"><img src="../asset/logo-blue.png" alt="logo"></a>
             <div class="nav-right">
                 <!-- <form action="home.php" method="post">
                     <div class="user-btn">
@@ -84,7 +84,7 @@ $hasil = execute_querry($sqlinst);
         </nav>
         <div class="nav-links">
             <ul>
-                <li><a href="../home.php" class="link">HOME</a></li>
+                <li><a href="../index.php" class="link">HOME</a></li>
                 <li><a href="create_detail.php" class="link">TAMBAH OLAHRAGA</a></li>
                 <li><a href="tambah_instruktor.php" class="link">TAMBAH INSTRUKTOR</a></li>
             </ul>

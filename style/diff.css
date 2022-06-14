@@ -207,9 +207,12 @@ nav img {
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
+    width: 60%;
 }
 
-
+.diff-col img{
+    width: 60%;
+}
 h1 {
     font-size: 40px;
     font-weight: 700;
@@ -232,6 +235,7 @@ p {
     padding: 40px 12px;
     box-sizing: border-box;
     transition: 0.5s;
+    width: 60%;
 }
 
 h3 {

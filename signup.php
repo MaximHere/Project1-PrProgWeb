@@ -1,14 +1,29 @@
 <?php
-session_start();
+require 'fungsi.php';
 
-if (isset($_POST['submit'])) {
-    $user = $_POST["user"];
-    $pass = $_POST["password"];
-    if ($user == 'admin' && $pass == 'admin1') {
-        $_SESSION['username'] = $user;
-        header("Location: home.php");
+if (isset($_POST['signup'])) {
+    $nama = $_POST["nama"];
+    $email = $_POST["email"];
+    $user =  $_POST["user"];
+    $pass =  $_POST["password"];
+
+    $sql_cari = "SELECT * FROM user WHERE userName = '".$user."' OR email = '".$email."';";
+    $hasil = execute_querry($sql_cari);
+
+    if (mysqli_num_rows($hasil) > 0) {
+        echo '<script>alert("Username atau Email sudah terdaftar!")</script>';
+    }else{
+        $sql_insert = "INSERT INTO user VALUES ('', '".$nama."', '".$email."', '".$user."', '".$pass."');";
+        if (execute_querry($sql_insert)){
+            header("Location: login.php");
+        }else{
+            echo '<script>alert("Gagal membuat akun!")</script>';
+        }
     }
 }
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -26,21 +41,21 @@ if (isset($_POST['submit'])) {
 <body>
 
 <section class="header">
-            <a href="home.php"><img src="asset/logo-blue.png" alt="logo"></a>
+            <a href="index.php"><img src="asset/logo-blue.png" alt="logo"></a>
     </section>
 
     <form id="login-form" action="signup.php" method="post">
         <h2>SIGN UP</h2><br>
 
         <div class="input-group">
-            <input required class="input" type="text" name="user">
+            <input required class="input" type="text" name="nama">
             <label class="input-label">Name</label>
         </div>
         <br>
         <br>
 
         <div class="input-group">
-            <input required class="input" type="text" name="user">
+            <input required class="input" type="email" name="email">
             <label class="input-label">Email</label>
         </div>
         <br>

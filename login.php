@@ -1,8 +1,8 @@
 <?php
-session_start();
+require 'fungsi.php';
 
 if (isset($_SESSION["username"])) {
-    header("Location: home.php");
+    header("Location: index.php");
 }
 
 if (isset($_POST['submit'])) {
@@ -10,7 +10,25 @@ if (isset($_POST['submit'])) {
     $pass = $_POST["password"];
     if ($user == 'admin' && $pass == 'admin1') {
         $_SESSION['username'] = $user;
-        header("Location: home.php");
+        header("Location: index.php");
+    }
+    else {
+        $sql = "SELECT * FROM user WHERE email = '".$user."' OR userName = '".$user."';";
+        $result = execute_querry($sql);
+        if (mysqli_num_rows($result) == 1){
+            $data = mysqli_fetch_assoc($result);
+            if($pass == $data['pass']){
+                $_SESSION['guest'] = $data['nama'];
+                header("Location: index.php");
+            }
+            else{
+                echo '<script>alert("Username atau Password anda Salah!")</script>';
+            }
+        }
+        else{
+            echo '<script>alert("Akun tidak terdaftar!")</script>';
+        }
+        
     }
 }
 ?>
@@ -30,21 +48,21 @@ if (isset($_POST['submit'])) {
 <body>
 
 <section class="header">
-            <a href="home.php"><img src="asset/logo-blue.png" alt="logo"></a>
+            <a href="index.php"><img src="asset/logo-blue.png" alt="logo"></a>
     </section>
 
     <form id="login-form" action="login.php" method="post">
         <h2>LOGIN</h2><br>
 
         <div class="input-group">
-            <input required class="input" type="text" name="user">
-            <label class="input-label">Username</label>
+            <input required class="input" type="text" name="user" id="user">
+            <label class="input-label" for="user">Username / Email</label>
         </div>
         <br>
         <br>
         <div class="input-group">
             <input required class="input" type="password" name="password" id="password">
-            <label class="input-label">Password</label>
+            <label class="input-label" for="password">Password</label>
         </div>
 
         <p id="warning-text">Caps Lock is ON</p>

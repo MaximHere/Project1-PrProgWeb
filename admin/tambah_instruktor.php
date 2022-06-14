@@ -37,7 +37,7 @@ if ($_POST) {
 <body>
     <section class="header">
         <nav>
-            <a href="../home.php"><img src="../asset/logo-blue.png" alt="logo"></a>
+            <a href="../index.php"><img src="../asset/logo-blue.png" alt="logo"></a>
             <div class="nav-right">
                 <h1>Tambah Instruktor</h1>
             </div>
