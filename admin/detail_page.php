@@ -44,14 +44,14 @@ $data = mysqli_fetch_assoc($querry);
                             <li><a href="#olahraga" class="link">OLAHRAGA</a></li>
                             <li><a href="#instruktur" class="link">INSTRUKTUR</a></li>
                             
-                                <?php
+                                <!-- <?php
                                 if (isset($_SESSION['username'])) {
                                     echo "<li><a href='db.php' class='link'>ADMIN</a></li>";
                                     echo "<li><button class='user-btn' name='logout'>Logout</button></li>";
                                 } else {
                                     echo "<button class='user-btn' name='login'>Login</button></li>";
                                 }
-                                ?>
+                                ?> -->
                         </ul>
                     </div>
                 </form>
@@ -85,7 +85,6 @@ $data = mysqli_fetch_assoc($querry);
                             <p>Calorie Burn : <strong><?= $data['caloriBurn']; ?></strong></p>
                             <p>Difficulty : <strong><?= $data['kesulitan']; ?></strong></p>
                             <p>Equipment : <strong><?= $data['equipment']; ?></strong></p>
-                            <p>Trainning Type : <strong>Cardiovascular</strong></p>
                             <p>Video Player : <strong><a href="<?= $data['youtube']; ?>">View on
                                         Youtube</a></strong></p>
                         </div>
@@ -122,7 +121,7 @@ $data = mysqli_fetch_assoc($querry);
     ?>
 
 
-    <section class="col-komentar">
+    <!-- <section class="col-komentar">
         <div class="komentar-content">
             <div class="komentar-title">
                 <h3>Comment</h3>
@@ -133,7 +132,7 @@ $data = mysqli_fetch_assoc($querry);
                 <button class="submit-comment">Send</button>
             </form>
         </div>
-    </section>
+    </section> -->
 
     <section class="footer">
         <h5>Copyright &copy; Fandy Abet Maxim</h5>

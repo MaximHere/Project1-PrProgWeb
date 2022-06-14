@@ -11,6 +11,8 @@ if (isset($_POST["login"])) {
     header("Location: beginner.php");
 }
 
+
+
 // Select Data
 $sql = "SELECT * FROM olahraga WHERE Kesulitan = 'Beginner';";
 $result = mysqli_query($konek, $sql);
@@ -31,6 +33,12 @@ $result = mysqli_query($konek, $sql);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <title>HEALTH & FITNESS</title>
+    <style>
+        .create-btn {
+            margin: 20px auto;
+            width: 400px;
+        }
+    </style>
 </head>
 
 <body>
@@ -86,9 +94,9 @@ $result = mysqli_query($konek, $sql);
 
     <section class="difficulty">
         <h1>Beginner</h1>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur, <br>
-            hic ipsum quidem veritatis quos beatae dolorem sequi ratione impedit laudantium porro, <br>
-            ab asperiores sunt deleniti! Ea nostrum labore expedita nisi!</p>
+        <p>Selamat datang di kategori olahraga Beginner, <br>
+            olahraga pada tingkat kesulitan ini sangat cocok untuk anda <br>
+            yang baru akan memulai untuk melakukan olahraga ataupun untuk anda yang ingin olahraga santai</p>
         
         <br>
         <h3>Daftar Olahraga Beginner</h3>
@@ -108,7 +116,7 @@ $result = mysqli_query($konek, $sql);
                     echo "<div class='admin-btn'>";
                     if (isset($_SESSION['username'])) {
                         echo "<a class='edit-btn' href='../admin/edit_detail.php?id=" . $row['idOlahraga'] . "'>Edit</a><br>";
-                        echo "<a class='delete-btn' href='../admin/edit_detail.php?id=" . $row['idOlahraga'] . "'>Delete</a>";
+                        echo "<a class='delete-btn' href='../admin/delete_olahraga.php?id=" . $row['idOlahraga'] . "'>Delete</a>";
                     }
                     echo "<br><br> 
                             </div>";
@@ -118,7 +126,6 @@ $result = mysqli_query($konek, $sql);
                 ?>
             
         
-        <img src="" alt="" style='width:30% ;'>
     </section>
 
     <!-- <section class="instruktur">
@@ -155,7 +162,13 @@ $result = mysqli_query($konek, $sql);
             </div>
         </div>
     </section> -->
-
+    <?php
+    if (isset($_SESSION['username'])) {
+        echo "<div class='create-btn'><form action='../admin/create_detail.php' method='post'>";
+        echo '<button class="admin-submit" type="submit">Tambah Data</button>';
+        echo "</form></div>";
+    }
+    ?>
     <section class="footer">
         <h5>Copyright &copy; Fandy Abet Maxim</h5>
     </section>

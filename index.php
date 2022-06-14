@@ -24,7 +24,8 @@ if (isset($_POST["admin"])) {
 $sql = "SELECT * FROM olahraga;";
 $result = mysqli_query($konek, $sql);
 
-$sql_inst = "SELECT * FROM";
+$sql_inst = "SELECT * FROM instruktor";
+$hasil = execute_querry($sql_inst);
 ?>
 
 
@@ -46,7 +47,7 @@ $sql_inst = "SELECT * FROM";
 <body>
 <section class="header">
         <nav>
-            <a href="home.php"><img src="asset/logo.png" alt="logo"></a>
+            <a href="index.php"><img src="asset/logo.png" alt="logo"></a>
             <div class="nav-right">
             
                 <form action="index.php" method="post">
@@ -75,7 +76,7 @@ $sql_inst = "SELECT * FROM";
         </nav>
         <div class="nav-links">
             <ul>
-                <li><a href="home.php" class="link">HOME</a></li>
+                <li><a href="index.php" class="link">HOME</a></li>
                 <li><a href="#instruktur" class="link">INSTRUKTUR</a></li>
                 <li>
                     <a href="#difficulty" class="link">TINGKAT KESULITAN</a>
@@ -142,43 +143,28 @@ $sql_inst = "SELECT * FROM";
         </div>
 
         <div class="instruktur-row">
-            <div class="instruktur-col">
-                <h3>Mbak Sri</h3>
-                <img src="asset/instructor.png" alt="instructor">
-                <div class="instruktur-btn">
-                    <a href="">DETAILS</a>
-                </div>
-            </div>
+            <?php
+            while ($row = mysqli_fetch_assoc($hasil)){
+                echo " <div class='instruktur-col'>";
+                echo "<h3>".$row['namaInstruktor']."</h3>";
+                echo "<img src='asset/instructor.png' alt='instructor'>";
+                echo "<div class='instruktur-btn'>";
+                echo "<a href='instruktur.php?id=".$row['idInstruktor']."'>DETAILS</a>";
+                echo "</div>";
+                echo "</div>";
+            }
+            ?>
+           
+                
 
-            <div class="instruktur-col">
-                <h3>Mbak Ayu</h3>
-                <img src="asset/instructor.png" alt="instructor">
-                <div class="instruktur-btn">
-                    <a href="">DETAILS</a>
-                </div>
-            </div>
-
-            <div class="instruktur-col">
+            
+            <!-- <div class="instruktur-col">
                 <h3>Mbak Siti</h3>
                 <img src="asset/instructor.png" alt="instructor">
                 <div class="instruktur-btn">
                     <a href="">DETAILS</a>
                 </div>
-            </div>
-            <div class="instruktur-col">
-                <h3>Mbak Siti</h3>
-                <img src="asset/instructor.png" alt="instructor">
-                <div class="instruktur-btn">
-                    <a href="">DETAILS</a>
-                </div>
-            </div>
-            <div class="instruktur-col">
-                <h3>Mbak Siti</h3>
-                <img src="asset/instructor.png" alt="instructor">
-                <div class="instruktur-btn">
-                    <a href="">DETAILS</a>
-                </div>
-            </div>
+            </div> -->
         </div>
     </section>
     
@@ -226,20 +212,19 @@ $sql_inst = "SELECT * FROM";
         <p>Silahkan pilih yang sesuai dengan kemampuan Anda!</p>
 
         <div class="olahraga-row">
-            <div class="olahraga-col">
-                <img src="asset/foto_/lari-portrait.png" alt="lari">
-                <a class="olahraga-btn" href="lari.php">LARI</a>
-            </div>
-
-            <div class="olahraga-col">
-                <img src="asset/foto_/pushup-portrait.png" alt="pushup">
-                <a class="olahraga-btn" href="pushup.php">PUSH UP</a>
-            </div>
-
-            <div class="olahraga-col">
+            <?php
+            while($rowOlahraga = mysqli_fetch_assoc($result)){
+                echo "<div class='olahraga-col'>";
+                echo "<img src='".$rowOlahraga["gambar"]."' alt='".$rowOlahraga['namaOlahraga']."'>";
+                echo "<a class='olahraga-btn' href='admin/detail_page.php?id=".$rowOlahraga['idOlahraga']."'>".$rowOlahraga['namaOlahraga']."</a>";
+                echo "</div>";
+            }
+            ?>   
+    
+            <!-- <div class="olahraga-col">
                 <img src="asset/foto_/situp-portrait.png" alt="situp">
                 <a class="olahraga-btn" href="situp.php">SIT UP</a>
-            </div>
+            </div> -->
         </div>
     </section>
 

@@ -13,7 +13,7 @@ elseif (isset($_POST["logout"])) {
 }
 
 // Select Data
-$sql="SELECT * FROM olahraga WHERE Kesulitan = 'Advanced';";
+$sql="SELECT * FROM olahraga WHERE Kesulitan = 'Hard';";
 $result=mysqli_query($konek,$sql);
 
 // var_dump($result);
@@ -91,70 +91,43 @@ $result=mysqli_query($konek,$sql);
 
     <section class="difficulty">
         <h1>Advanced</h1>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur, <br>
-            hic ipsum quidem veritatis quos beatae dolorem sequi ratione impedit laudantium porro, <br>
-            ab asperiores sunt deleniti! Ea nostrum labore expedita nisi!</p>
+        <p>Selamat datang di kategori olahraga Advanced, <br>
+            pada kategori kesulitan olah raga ini sangat cocok untuk anda yang <br>
+            menginginkan olahraga yang sangat sulit dan menantang</p>
         
         <br>
         <h3>Daftar Olahraga Advanced</h3>
 
-        <div class="diff-row">
-            <div class="diff-col">
                 <br>
                 <?php
                 while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<div class="diff-row">';
+                    echo '<div class="diff-col">';
                     echo '<div>';
-                    echo "<img src='" . $row['gambar'] . "' alt='" . $row['namaOlahraga'] . "'>";
+                    echo "<img src='../" . $row['gambar'] . "' alt='" . $row['namaOlahraga'] . "' style='width:90% ;'>";
                     echo '<br>';
                     echo "<a class='olahraga-btn' href='../admin/detail_page.php?id=" . $row['idOlahraga'] . "'>" . $row['namaOlahraga'] . "</a>";
                     echo "</div>";
                     echo "<div class='admin-btn'>";
                     if (isset($_SESSION['username'])) {
                         echo "<a class='edit-btn' href='../admin/edit_detail.php?id=" . $row['idOlahraga'] . "'>Edit</a><br>";
-                        echo "<a class='delete-btn' href='../admin/edit_detail.php?id=" . $row['idOlahraga'] . "'>Delete</a>";
+                        echo "<a class='delete-btn' href='../admin/delete_olahraga.php?id=" . $row['idOlahraga'] . "'>Delete</a>";
                     }
                     echo "<br><br> 
                             </div>";
+                    echo '</div>';
+                    echo '</div>';
                 }
                 ?>
-            </div>
-        </div>
     </section>
 
-    <section class="instruktur">
-        <div class="instruktur-title">
-        <h1>DAFTAR INSTRUKTUR</h1>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur, <br>
-            hic ipsum quidem veritatis quos beatae dolorem sequi ratione impedit laudantium porro, <br>
-            ab asperiores sunt deleniti! Ea nostrum labore expedita nisi!</p>
-        </div>
-        
-        <div class="instruktur-row">
-            <div class="instruktur-col">
-                <h3>Mbak Sri</h3>
-                <img src="../asset/instructor.png" alt="instructor">
-                <div class="instruktur-btn">
-                <a href="">DETAILS</a>
-                </div>
-            </div>
-
-            <div class="instruktur-col">
-                <h3>Mbak Ayu</h3>
-                <img src="../asset/instructor.png" alt="instructor">
-                <div class="instruktur-btn">
-                <a href="">DETAILS</a>
-                </div>
-            </div>
-
-            <div class="instruktur-col">
-                <h3>Mbak Siti</h3>
-                <img src="../asset/instructor.png" alt="instructor">
-                <div class="instruktur-btn">
-                <a href="">DETAILS</a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <?php
+    if (isset($_SESSION['username'])) {
+        echo "<div class='create-btn'><form action='../admin/create_detail.php' method='post'>";
+        echo '<button class="admin-submit" type="submit">Tambah Data</button>';
+        echo "</form></div>";
+    }
+    ?>
 
     <section class="footer">
         <h5>Copyright &copy; Fandy Abet Maxim</h5>

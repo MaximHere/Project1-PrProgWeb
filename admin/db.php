@@ -102,6 +102,7 @@ $hasil = execute_querry($sqlinst);
         <table class="container">
             <thead class="table-header">
                 <td>#</td>
+                <td>id</td>
                 <td>Nama Olahraga</td>
                 <td>Nama Instruktur</td>
                 <td>Kesulitan</td>
@@ -110,8 +111,10 @@ $hasil = execute_querry($sqlinst);
             </thead>
             <a href='detail_page.php?id='></a>
             <?php
+            $i = 1;
             while ($row = mysqli_fetch_assoc($result)){
                 echo "<tbody class='table-row'>";
+                echo "<td>".$i."</td>";
                 echo "<td>".$row['idOlahraga']."</td>";
                 echo "<td><a href='detail_page.php?id=".$row['idOlahraga']."'>".$row['namaOlahraga']."</a></td>";
                 // echo "<td>coba</td>";
@@ -121,16 +124,10 @@ $hasil = execute_querry($sqlinst);
                 echo "<td><button class='act-btn' onclick='edit_olahraga(".$row['idOlahraga'].");'>Edit</button>";
                 echo " || ";
                 echo "<button class='act-btn' onclick='delete_olahraga(".$row['idOlahraga'].");'>Delete</button></td>";
+                $i++;
             }
             ?>
-            <tbody class="table-row">
-                <td><button onclick='edit();'>Edit</button></td>
-                <td><a href="../home.php">ddfgdfg</a></td>
-                <td>coba</td>
-                <td>coba</td>
-                <td class="action-btn">
-                </td>
-            </tbody>
+            
             
         </table>
 
@@ -149,17 +146,21 @@ $hasil = execute_querry($sqlinst);
         <table class="container">
             <thead class="table-header">
                 <td>#</td>
+                <td>id</td>
                 <td>Nama Instruktur</td>
                 <td>Actions</td>
             </thead>
             <?php
+            $i = 1;
             while ($baris = mysqli_fetch_assoc($hasil)){
                 echo "<tbody class='table-row'>";
+                echo "<td>".$i."</td>";
                 echo "<td>".$baris['idInstruktor']."</td>";
                 echo "<td>".$baris['namaInstruktor']."</td>";
                 echo "<td><button class='act-btn' onclick='edit_instruktor(".$baris['idInstruktor'].");'>Edit</button>";
                 echo "|| ";
                 echo "<button class='act-btn' onclick='delete_instruktor(".$baris['idInstruktor'].");'> Delete</button></td>";
+                $i++;
             }
             ?>
         

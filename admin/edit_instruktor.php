@@ -67,7 +67,7 @@ else if ($_POST) {
             </div>
 
             <div>
-                <button type="submit" name="submit_edit" class="submit" >Edit Instruktor</button>
+                <button type="submit" name="submit_edit" class="submit" >Simpan</button>
             </div>
         </form>
     </section>

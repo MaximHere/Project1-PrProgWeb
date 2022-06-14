@@ -2,10 +2,18 @@
 require 'fungsi.php';
 
 if(isset($_POST['cari'])){
-    $cari = $_POST["cari"];
-    $sql = "SELECT * FROM olahraga NATURAL JOIN instruktor WHERE namaOlahraga = '".$cari."' OR namaInstruktor = '".$cari."'";
+    $cari = strtolower($_POST["cari"]);
+    if($cari === "mudah" or $cari === "gampang" or $cari === "easy" or $cari === "ez"){
+        $sql = "SELECT * FROM olahraga NATURAL JOIN instruktor WHERE kesulitan = 'Beginner' OR kesulitan = 'Intermediete'";
+    }elseif($cari === "susah" or $cari === "sulit"){
+        $sql = "SELECT * FROM olahraga NATURAL JOIN instruktor WHERE kesulitan = 'Hard' OR kesulitan = 'Intermediete'";
+    }else{
+        $sql = "SELECT * FROM olahraga NATURAL JOIN instruktor WHERE namaOlahraga LIKE '".$cari."' OR namaInstruktor LIKE '".$cari."' OR kesulitan LIKE '".$cari."';";
+    }
+    
     $result = execute_querry($sql);
     
+
 }
 
 ?>
@@ -27,7 +35,7 @@ if(isset($_POST['cari'])){
 <body>
 <section class="header">
         <nav>
-            <a href="indexs.php"><img src="asset/logo-blue.png" alt="logo"></a>
+            <a href="index.php"><img src="asset/logo-blue.png" alt="logo"></a>
             <div class="nav-right">
                 <form action="indexs.php" method="post">
                     <div class="user-btn">
@@ -66,18 +74,27 @@ if(isset($_POST['cari'])){
         <h1>hasil pencarian</h1>
             <hr class="hr-search">
             <form action="search.php" method="post">
-                <input class="search-box" type="text" placeholder="Search Here">
+                <input class="search-box" type="text" placeholder="Search Here" name="cari">
             </form>
     </div>
 
     <div class="hasil">
-        <h2>9999 hasil dari ...</h2>
+        <h2><?=mysqli_num_rows($result);?> hasil </h2>
         <hr class="hr-hasil">
         <div>
             <ul>
-                <li></li>
-                <li></li>
-                <li></li>
+                <?php
+                while ($row = mysqli_fetch_assoc($result)){
+                    echo "<li><a href='admin/detail_page.php?id=".$row["idOlahraga"]."'>".$row["namaOlahraga"]."</a>";
+                    echo "<table>";
+                    echo "<tr><td>Instruktor: ".$row["namaInstruktor"]."</td></tr>";
+                    echo "<tr><td>Kesulitan: ".$row["kesulitan"]."</td></tr>";
+                    echo "";
+                    echo "</table>";
+                    echo "</li>";
+                }
+                
+                ?>
             </ul>
         </div>
     </div>
