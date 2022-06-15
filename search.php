@@ -8,7 +8,7 @@ if(isset($_POST['cari'])){
     }elseif($cari === "susah" or $cari === "sulit"){
         $sql = "SELECT * FROM olahraga NATURAL JOIN instruktor WHERE kesulitan = 'Hard' OR kesulitan = 'Intermediete'";
     }else{
-        $sql = "SELECT * FROM olahraga NATURAL JOIN instruktor WHERE namaOlahraga LIKE '".$cari."' OR namaInstruktor LIKE '".$cari."' OR kesulitan LIKE '".$cari."';";
+        $sql = "SELECT * FROM olahraga NATURAL JOIN instruktor WHERE namaOlahraga LIKE '%".$cari."%' OR namaInstruktor LIKE '%".$cari."%' OR kesulitan LIKE '%".$cari."%';";
     }
     
     $result = execute_querry($sql);

@@ -39,7 +39,7 @@ if ($_POST) {
             $sql = "INSERT INTO olahraga VALUES ('', '" . $namaOlahraga . "', '".$instruktor."', '" . $durasi . "', '" . $caloriBurn . "', '" . $kesulitan . "', '" . $equipment . "', '" . $youtube . "', '" . $embedYoutube . "', '" . $definisi . "', '" . $manfaat . "', '" . $cara . "', '" . $path . "'); ";
             
             
-            $sql2 = "INSERT INTO olahraga (`idOlahraga`, `namaOlahraga`, `idInstruktor`, `durasi`, `caloriBurn`, `kesulitan`, `equipment`, `youtube`, `embedYoutube`, `definisi`, `manfaat`, `cara`, `gambar`) VALUES (NULL, '" . $namaOlahraga . "', '".$instruktor."', '" . $durasi . "', '" . $caloriBurn . "', '" . $kesulitan . "', '" . $equipment . "', '" . $youtube . "', '" . $embedYoutube . "', '" . $definisi . "', '" . $manfaat . "', '" . $cara . "', '" . $path . "'); ";
+            $sql2 = "INSERT INTO olahraga (`namaOlahraga`, `idInstruktor`, `durasi`, `caloriBurn`, `kesulitan`, `equipment`, `youtube`, `embedYoutube`, `definisi`, `manfaat`, `cara`, `gambar`) VALUES ('" . $namaOlahraga . "', '".$instruktor."', '" . $durasi . "', '" . $caloriBurn . "', '" . $kesulitan . "', '" . $equipment . "', '" . $youtube . "', '" . $embedYoutube . "', '" . $definisi . "', '" . $manfaat . "', '" . $cara . "', '" . $path . "'); ";
 
             if(execute_querry($sql)){
                 header("Location: db.php");

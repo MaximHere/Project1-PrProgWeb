@@ -5,7 +5,7 @@ if (isset($_POST['signup'])) {
     $nama = $_POST["nama"];
     $email = $_POST["email"];
     $user =  $_POST["user"];
-    $pass =  $_POST["password"];
+    $pass =  sha1($_POST["password"]);
 
     $sql_cari = "SELECT * FROM user WHERE userName = '".$user."' OR email = '".$email."';";
     $hasil = execute_querry($sql_cari);
@@ -13,7 +13,7 @@ if (isset($_POST['signup'])) {
     if (mysqli_num_rows($hasil) > 0) {
         echo '<script>alert("Username atau Email sudah terdaftar!")</script>';
     }else{
-        $sql_insert = "INSERT INTO user VALUES ('', '".$nama."', '".$email."', '".$user."', '".$pass."');";
+        $sql_insert = "INSERT INTO user (`nama`, `email`, `userName`, `pass`) VALUES ('".$nama."', '".$email."', '".$user."', '".$pass."');";
         if (execute_querry($sql_insert)){
             header("Location: login.php");
         }else{
@@ -63,14 +63,14 @@ if (isset($_POST['signup'])) {
 
         <div class="input-group">
             <input required class="input" type="text" name="user">
-            <label class="input-label">Username</label>
+            <label class="input-label" for="user">Username</label>
         </div>
         <br>
         <br>
 
         <div class="input-group">
             <input required class="input" type="password" name="password" id="password">
-            <label class="input-label">Password</label>
+            <label class="input-label" for="password">Password</label>
         </div>
         <p id="warning-text">Caps Lock is ON</p>
         <br>

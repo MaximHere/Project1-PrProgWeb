@@ -7,8 +7,8 @@ if (isset($_SESSION["username"])) {
 
 if (isset($_POST['submit'])) {
     $user = $_POST["user"];
-    $pass = $_POST["password"];
-    if ($user == 'admin' && $pass == 'admin1') {
+    $pass = sha1($_POST["password"]);
+    if ($user == 'admin' && $pass == '6c7ca345f63f835cb353ff15bd6c5e052ec08e7a') {
         $_SESSION['username'] = $user;
         header("Location: index.php");
     }

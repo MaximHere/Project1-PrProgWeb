@@ -31,6 +31,15 @@ if(isset($_GET['inst'])){
             echo "<script>alert('Data gagal dihapus')</script>";
         }
     }
+
+if(isset($_GET['user'])){
+    $id = $_GET['user'];
+    if(execute_querry("DELETE FROM user WHERE idUser =".$id.";")){
+        echo "<script>alert('Data Berhasil dihapus')</script>";
+        }else{
+            echo "<script>alert('Data gagal dihapus')</script>";
+        }
+    }
     
 
 
@@ -40,6 +49,9 @@ $result = execute_querry($sql);
 
 $sqlinst = "SELECT * FROM instruktor;";
 $hasil = execute_querry($sqlinst);
+
+$sqlusser = "SELECT * FROM user;";
+$daftarUser = execute_querry($sqlusser);
 ?>
 
 
@@ -168,7 +180,44 @@ $hasil = execute_querry($sqlinst);
         </table>
 
     </section>
+    <br>
+    <br>
+    <br>
+    <div class="title">
+        <h1>Database User</h1>
+        <hr>
+    </div>
 
+    <section class="tabel-olahraga">
+        <table class="container">
+            <thead class="table-header">
+                <td>#</td>
+                <td>id</td>
+                <td>Nama User</td>
+                <td>Email</td>
+                <td>Username</td>
+                <td>Actions</td>
+            </thead>
+            <a href='detail_page.php?id='></a>
+            <?php
+            $i = 1;
+            while ($rowUser = mysqli_fetch_assoc($daftarUser)){
+                echo "<tbody class='table-row'>";
+                echo "<td>".$i."</td>";
+                echo "<td>".$rowUser['idUser']."</td>";
+                echo "<td>".$rowUser['nama']."</a></td>";
+                // echo "<td>coba</td>";
+                echo "<td>".$rowUser['email']."</td>";
+                echo "<td>".$rowUser['userName']."</td>";
+                echo "<td><button class='act-btn' onclick='delete_user(".$rowUser['idUser'].");'>Delete</button></td>";
+                $i++;
+            }
+            ?>
+            
+            
+        </table>
+
+    </section>
     <section class="footer">
         <h5>Copyright &copy; Fandy Abet Maxim</h5>
     </section>
@@ -187,6 +236,9 @@ $hasil = execute_querry($sqlinst);
     }
     function delete_instruktor(id){
         location.href="db.php?inst="+id;
+    }
+    function delete_user(id){
+        location.href="db.php?user="+id;
     }
 </script>
 </html>
