@@ -1,7 +1,7 @@
 <?php
 require 'fungsi.php';
 
-if (isset($_SESSION["username"])) {
+if (isset($_SESSION["username"]) or isset($_SESSION["guest"])) {
     header("Location: index.php");
 }
 
@@ -38,6 +38,7 @@ if (isset($_POST['submit'])) {
 
 <head>
     <link rel="stylesheet" href="style/login.css">
+    <link rel="icon" href="asset/minilogo-blue.png" type="image/icon type">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
@@ -72,9 +73,11 @@ if (isset($_POST['submit'])) {
             <input class="checkbox" type="checkbox" onclick="myFunction()">
             <span class="checkmark"></span>
         </label>
-
+       
         <button class="login-button" type="submit" name="submit">Login</button>
     </form>
+    <p> Belum punya akun? <a href="signup.php">Sign Up</a></p>
+    
 
     <section class="footer">
         <h5>Copyright &copy; Fandy Abet Maxim</h5>

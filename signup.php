@@ -34,6 +34,7 @@ if (isset($_POST['signup'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="icon" href="asset/minilogo-blue.png" type="image/icon type">
     <title>LOGIN</title>
 </head>
 
@@ -75,8 +76,16 @@ if (isset($_POST['signup'])) {
         <p id="warning-text">Caps Lock is ON</p>
         <br>
         <br>
+
+        <div class="input-group">
+            <input required class="input" type="password" name="passwordconf" id="passwordconf" onkeyup="cekPw();">
+            <label class="input-label" for="passwordconf">Confirm Password</label>
+        </div>
+        <p id="warning-salah">Password belum sesuai</p>
+        <br>
+        <br>
         
-        <button class="signup-button" type="submit" name="signup">Sign Up</button>
+        <button class="signup-button" type="submit" name="signup" id="submit">Sign Up</button>
     </form>
 
     <section class="footer">
@@ -85,6 +94,21 @@ if (isset($_POST['signup'])) {
 </body>
 
 <script>
+    // Check Password
+    function cekPw(){
+        var pass = document.getElementById("password");
+        var conf = document.getElementById("passwordconf");
+        var notif = document.getElementById("warning-salah");
+        var submit = document.getElementById("submit")
+        if(pass.value === conf.value){
+            notif.style.display = "none";
+            submit.disabled = false;
+        }else{
+            notif.style.display = "block";
+            submit.disabled = true;
+        }
+    }
+
     // SHOW PASSWORD
     function myFunction() {
         var x = document.getElementById("password");

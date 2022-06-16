@@ -28,6 +28,7 @@ $result=mysqli_query($konek,$sql);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Health and Fitness</title>
+    <link rel="icon" href="../asset/minilogo-blue.png" type="image/icon type">
     <link rel="stylesheet" href="../style/diff.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,7 +69,7 @@ $result=mysqli_query($konek,$sql);
         <div class="nav-links">
             <ul>
                 <li><a href="../index.php" class="link">HOME</a></li>
-                <li><a href="#instruktur" class="link">INSTRUKTUR</a></li>
+                <li><a href="../index.php#instruktur" class="link">INSTRUKTUR</a></li>
                 <li>
                     <a href="" class="link">TINGKAT KESULITAN</a>
                     <div class="dropdown-menu">
@@ -79,7 +80,7 @@ $result=mysqli_query($konek,$sql);
                         </ul>
                     </div>
                 </li>
-                <li><a href="#olahraga" class="link">OLAHRAGA</a></li>
+                <li><a href="../index.php#olahraga" class="link">OLAHRAGA</a></li>
             </ul>
         </div>
         <br>

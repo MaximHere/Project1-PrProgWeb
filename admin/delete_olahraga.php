@@ -1,5 +1,10 @@
 <?php
 require '../fungsi.php';
+
+if(!isset($_SESSION['username'])){
+    header("Location: ../index.php");
+}
+
 if(isset($_GET['id'])){
     $id = $_GET['id'];
     $sql_q = "SELECT * FROM olahraga NATURAL JOIN instruktor WHERE idOlahraga = '".$id."' ;";

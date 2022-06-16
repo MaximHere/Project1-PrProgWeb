@@ -1,7 +1,9 @@
 <?php
 require '../fungsi.php';
 
-
+if(!isset($_SESSION['username'])){
+    header("Location: ../index.php");
+}
 
 
 if(isset($_GET['id'])){
@@ -62,11 +64,12 @@ $daftarUser = execute_querry($sqlusser);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../asset/minilogo-blue.png" type="image/icon type">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <title>HEALTH & FITNESS</title>
+    <title>DB HEALTH & FITNESS</title>
 </head>
 
 <body>
@@ -118,7 +121,6 @@ $daftarUser = execute_querry($sqlusser);
                 <td>Nama Olahraga</td>
                 <td>Nama Instruktur</td>
                 <td>Kesulitan</td>
-                <td>Foto Olahraga</td>
                 <td>Actions</td>
             </thead>
             <a href='detail_page.php?id='></a>
@@ -132,7 +134,6 @@ $daftarUser = execute_querry($sqlusser);
                 // echo "<td>coba</td>";
                 echo "<td>".$row['namaInstruktor']."</td>";
                 echo "<td>".$row['kesulitan']."</td>";
-                echo "<td><img src='".$row['gambar']."' alt=''></td>";
                 echo "<td><button class='act-btn' onclick='edit_olahraga(".$row['idOlahraga'].");'>Edit</button>";
                 echo " || ";
                 echo "<button class='act-btn' onclick='delete_olahraga(".$row['idOlahraga'].");'>Delete</button></td>";

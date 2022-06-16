@@ -24,6 +24,7 @@ $data = mysqli_fetch_assoc($querry);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../asset/minilogo-blue.png" type="image/icon type">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,8 +42,8 @@ $data = mysqli_fetch_assoc($querry);
                     <div class="nav-links">
                         <ul>
                             <li><a href="../index.php" class="link">HOME</a></li>
-                            <li><a href="#olahraga" class="link">OLAHRAGA</a></li>
-                            <li><a href="#instruktur" class="link">INSTRUKTUR</a></li>
+                            <li><a href="../index.php#olahraga" class="link">OLAHRAGA</a></li>
+                            <li><a href="../index.php#instruktur" class="link">INSTRUKTUR</a></li>
                             
                                 <!-- <?php
                                 if (isset($_SESSION['username'])) {
@@ -61,6 +62,9 @@ $data = mysqli_fetch_assoc($querry);
     <?php
     if (isset($_SESSION['username'])) {
         echo "<h5 id='welcome-user'>Selamat datang, " . $_SESSION['username'] . "</h5><br>";
+    }
+    else if (isset($_SESSION['guest'])) {
+        echo "<h5 id='welcome-user'>Selamat datang, " . $_SESSION['guest'] . "</h5><br>";
     }
     ?>
 

@@ -1,6 +1,10 @@
 <?php
 require '../fungsi.php';
 
+if(!isset($_SESSION['username'])){
+    header("Location: ../index.php");
+}
+
 if ($_POST) {
     $id = $_POST["idOlahraga"];
     $namaInstruktor = $_POST["namaInstruktor"];
@@ -28,6 +32,7 @@ if ($_POST) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tambah Olahraga</title>
+    <link rel="icon" href="../asset/minilogo-blue.png" type="image/icon type">
     <link rel="stylesheet" href="../style/edit.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

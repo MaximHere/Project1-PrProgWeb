@@ -95,6 +95,16 @@ form {
     color: red;
 }
 
+#warning-salah {
+    font-size: 10px;
+    font-weight: bold;
+    position: absolute;
+    padding-left: 5px;
+    padding-top: 5px;
+    display: none;
+    color: red;
+}
+
 
 /* SHOW PASSWORD */
 
