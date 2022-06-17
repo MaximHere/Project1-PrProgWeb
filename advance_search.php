@@ -1,25 +1,29 @@
 <?php
 require 'fungsi.php';
-
-if(isset($_POST['advance'])){
-    $lokasi = "Location: advance_search.php?cari=".$_POST['cari'];
-    header($lokasi);
+if(isset($_GET['cari'])){
+    $cari = $_GET['cari'];
 }
+
+if(isset($_POST['difficulty'])){
+    $diff = " AND kesulitan = '".$_POST['difficulty']."'";
+}else{
+    $diff = "";
+    echo "<script>disable('difficulty');</script>";
+}
+
+if(isset($_POST['instruktor'])){
+    $inst = " AND idInstruktor = '%".$_POST['instruktor']."%'";
+}else{
+    $inst = "";
+}
+
+
 if(isset($_POST['cari'])){
     $cari = strtolower($_POST["cari"]);
-    if($cari === "mudah" or $cari === "gampang" or $cari === "easy" or $cari === "ez"){
-        $sql = "SELECT * FROM olahraga NATURAL JOIN instruktor WHERE kesulitan = 'Beginner' OR kesulitan = 'Intermediete'";
-    }elseif($cari === "susah" or $cari === "sulit"){
-        $sql = "SELECT * FROM olahraga NATURAL JOIN instruktor WHERE kesulitan = 'Hard' OR kesulitan = 'Intermediete'";
-    }else{
-        $sql = "SELECT * FROM olahraga NATURAL JOIN instruktor WHERE namaOlahraga LIKE '%".$cari."%' OR namaInstruktor LIKE '%".$cari."%' OR kesulitan LIKE '%".$cari."%';";
-    }
-    
-    $result = execute_querry($sql);
-    
-
 }
 
+$sql = "SELECT * FROM olahraga NATURAL JOIN instruktor WHERE namaOlahraga LIKE '%".$cari."%'".$inst.$diff.";";    
+$result = execute_querry($sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,20 +82,47 @@ if(isset($_POST['cari'])){
     <div class="search">
         <h1>hasil pencarian</h1>
             <hr class="hr-search">
-            <form action="search.php" method="post">
-                <input class="search-box" type="text" placeholder="Search Here" name="cari" value="<?=$_POST["cari"] ;?>" >
-                <button class="login-btn" name="">Search</button>
-                <button class="sign-btn" name="advance">Advance Search</button>
+            <form action="advance_search.php" method="post">
+                <input class="search-box" type="text" placeholder="Search Here" name="cari" value="<?=$cari;?>">
+                <button class="login-btn" name="advance">Advance Search</button>
+                
+                <br><br>
+                <input type="checkbox" name="akdif" id="akdif" onclick="modify('akdif', 'difficulty');" checked>
+                <label for="difficulty">Tingkat Kesulitan</label>
+                <select name="difficulty" id="difficulty">
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediete">Intermediete</option>
+                    <option value="Hard">Hard</option>
+                </select>
+
+                <br><br>
+                <input type="checkbox" name="akins" id="akins" onclick="modify('akins', 'instruktor');" checked>
+                <label for="instruktor">Instruktor</label>
+                <select name="instruktor" id="instruktor">
+                    <?php
+                        $data = execute_querry("SELECT * FROM instruktor");
+                        while ($row = mysqli_fetch_assoc($data)){
+                            echo "<option value='".$row['idInstruktor']."'>".$row['namaInstruktor']."</option>";
+                        }
+                    ?>
+                </select>
             </form>
     </div>
 
     <div class="hasil">
-        <h2><?=mysqli_num_rows($result);?> hasil </h2>
+        <h2><?php
+        if(isset($_POST['cari'])){
+            echo mysqli_num_rows($result);
+        }else{
+            echo "0";
+        }
+        
+        ?> hasil </h2>
         <hr class="hr-hasil">
         <div>
             <ul>
                 <?php
-                if(mysqli_num_rows($result)>0){
+                if(isset($_POST['cari']) and mysqli_num_rows($result)>0){
                     while ($row = mysqli_fetch_assoc($result)){
                         echo "<li><a href='admin/detail_page.php?id=".$row["idOlahraga"]."'>".$row["namaOlahraga"]."</a>";
                         echo "<table>";
@@ -105,6 +136,7 @@ if(isset($_POST['cari'])){
                     echo "Tidak ada Hasil";
                 }
                 
+                
                 ?>
             </ul>
         </div>
@@ -115,4 +147,36 @@ if(isset($_POST['cari'])){
         <h5>Copyright &copy; Fandy Abet Maxim</h5>
     </section>
 </body>
+<script>
+    
+function modify(idstr, idmod){
+    var x = document.getElementById(idstr);
+    if(x.checked){
+        enable(idmod);
+    }
+    else{
+        disable(idmod);
+    }
+}
+
+function disable(idstr) {
+document.getElementById(idstr).disabled = true;
+}
+
+function enable(idstr) {
+document.getElementById(idstr).disabled = false;
+}
+
+function unchecked(idstr){
+    document.getElementById(idstr).checked = false;
+}
+</script>
+<?php
+if(!isset($_POST['instruktor'])){
+    echo "<script>disable('instruktor'); unchecked('akins');</script>";
+}
+if(!isset($_POST['difficulty'])){
+    echo "<script>disable('difficulty'); unchecked('akdif');</script>";
+}
+?>
 </html>

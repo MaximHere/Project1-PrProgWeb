@@ -45,7 +45,7 @@ if ($_POST) {
             
             $sql2 = "INSERT INTO olahraga (`namaOlahraga`, `idInstruktor`, `durasi`, `caloriBurn`, `kesulitan`, `equipment`, `youtube`, `embedYoutube`, `definisi`, `manfaat`, `cara`, `gambar`) VALUES ('" . $namaOlahraga . "', '".$instruktor."', '" . $durasi . "', '" . $caloriBurn . "', '" . $kesulitan . "', '" . $equipment . "', '" . $youtube . "', '" . $embedYoutube . "', '" . $definisi . "', '" . $manfaat . "', '" . $cara . "', '" . $path . "'); ";
 
-            if(execute_querry($sql)){
+            if(execute_querry($sql2)){
                 header("Location: db.php");
             }
             else{
