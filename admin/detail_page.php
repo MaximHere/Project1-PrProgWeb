@@ -24,7 +24,6 @@ $data = mysqli_fetch_assoc($querry);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../asset/minilogo-blue.png" type="image/icon type">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,40 +32,55 @@ $data = mysqli_fetch_assoc($querry);
 </head>
 
 <body>
-    <section class="header">
+<section class="header">
         <nav>
             <a href="../index.php"><img src="../asset/logo-blue.png" alt="logo"></a>
-
             <div class="nav-right">
                 <form action="../index.php" method="post">
-                    <div class="nav-links">
-                        <ul>
-                            <li><a href="../index.php" class="link">HOME</a></li>
-                            <li><a href="../index.php#olahraga" class="link">OLAHRAGA</a></li>
-                            <li><a href="../index.php#instruktur" class="link">INSTRUKTUR</a></li>
-                            
-                                <!-- <?php
-                                if (isset($_SESSION['username'])) {
-                                    echo "<li><a href='db.php' class='link'>ADMIN</a></li>";
-                                    echo "<li><button class='user-btn' name='logout'>Logout</button></li>";
-                                } else {
-                                    echo "<button class='user-btn' name='login'>Login</button></li>";
-                                }
-                                ?> -->
-                        </ul>
+                    <div class="user-btn">
+                        <?php
+                        if (isset($_SESSION['username'])) {
+                            echo "<button class='login-btn' name='logout'>Logout</button>";
+                        } else {
+                            echo "<button class='login-btn' name='login'>Login</button>";
+                        }
+                        ?>
+                        <?php
+                        if (isset($_SESSION['username'])) {
+                            echo " ";
+                        } else {
+                            echo "<button class='sign-btn' name='signup'>Sign Up</button>";
+                        }
+                        ?>
                     </div>
                 </form>
             </div>
+        </nav>
+
+        <div class="nav-links">
+            <ul>
+                <li><a href="../index.php" class="link">HOME</a></li>
+                <li><a href="#instruktur" class="link">INSTRUKTUR</a></li>
+                <li>
+                    <a href="" class="link">TINGKAT KESULITAN</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="beginner.php">Beginner</a></li>
+                            <li><a href="intermediete.php">Intermediete</a></li>
+                            <li><a href="advanced.php">Advanced</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#olahraga" class="link">OLAHRAGA</a></li>
+            </ul>
+        </div>
+        <br>
+        <?php
+        if (isset($_SESSION['username'])) {
+            echo "<h5 id='welcome-user'>Selamat datang, " . $_SESSION['username'] . "</h5><br>";
+        }
+        ?>
     </section>
-    <br>
-    <?php
-    if (isset($_SESSION['username'])) {
-        echo "<h5 id='welcome-user'>Selamat datang, " . $_SESSION['username'] . "</h5><br>";
-    }
-    else if (isset($_SESSION['guest'])) {
-        echo "<h5 id='welcome-user'>Selamat datang, " . $_SESSION['guest'] . "</h5><br>";
-    }
-    ?>
 
     <section class="head-container">
         <div class="title-head">

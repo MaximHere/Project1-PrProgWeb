@@ -76,27 +76,7 @@ nav img {
 }
 
 
-.act-btn {
-    padding: 5px 18px;
-    margin-right: 10px;
-    background-color: transparent;
-    border: 2px #060c25 solid;
-    color: #060c25;
-    padding: 5px 18px;
-    text-align: center;
-    border-radius: 50px;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-}
 
-.act-btn:hover {
-    background-color: #2b41a1;
-    border-color: #4864e1;
-    outline-color: #4864e1;
-    color: #ededed;
-    transition: 1s;
-}
 
 /* NAVIGATION */
 
@@ -232,7 +212,7 @@ nav img {
 /* TABLE */
 
 table {
-    width: 70%;
+    width: 80%;
     padding-top: 30px;
     border-collapse: collapse;
     margin: auto;
@@ -259,56 +239,54 @@ table tbody tr:nth-child(even) {
 }
 
 table tbody tr:hover {
-    background-color: #376ab7;
+    background-color: #d7d7d7a2;
 }
 
- table tbody tr:hover td {
-    color: #FFFFFF;
-}
-
- table tbody tr:hover td:nth-child(1) {
-    color: #FFFFFF;
-}
 
  table tbody tr td {
-    padding: 10px;
+    padding: 5px;
 }
 
- table tbody tr td:nth-child(1) {
-    color: #a5a7a9;
+
+
+
+/* ACTION BUTTON */
+
+.act-btn {
+    padding: 5px 18px;
+    background-color: transparent;
+    border: 2px #060c25 solid;
+    color: #060c25;
+    padding: 5px 18px;
+    text-align: center;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
- table tbody tr td.actions {
-    padding: 8px;
-    text-align: right;
+
+#edit-btn:hover {
+    background-color: #2b41a1;
+    border-color: #4864e1;
+    outline-color: #4864e1;
+    color: #ededed;
+    transition: 1s;
 }
 
- table tbody tr td.actions .edit,  table tbody tr td.actions .trash {
-    display: inline-flex;
-    text-align: right;
-    text-decoration: none;
-    color: #FFFFFF;
-    padding: 10px 12px;
+#delete-btn:hover {
+    background-color: #a12b2b;
+    border-color: #e14848;
+    outline-color: #e14848;
+    color: #ededed;
+    transition: 1s;
 }
 
- table tbody tr td.actions .trash {
-    background-color: #b73737;
-}
-
- table tbody tr td.actions .trash:hover {
-    background-color: #a33131;
-}
- table tbody tr td.actions .edit {
-    background-color: #37afb7;
-}
-
- table tbody tr td.actions .edit:hover {
-    background-color: #319ca3;
-}
 
 /* footer */
 .footer {
     position: absolute;
+    margin-top: 50px;
     width: 100%;
     height: 100px;
     background-color: #ffffffab;
